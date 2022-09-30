@@ -1,0 +1,185 @@
+.bg-b {
+    background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)) !important;
+}
+
+.profile-login {
+    /* background: linear-gradient(to bottom left, #0033cc 0%, #ff0066 100%) !important; */
+}
+
+.bg-color {
+    background-color: rgb(17 23 151);
+    box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+    /* background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)); */
+    margin-bottom: 1.5rem;
+    border: 0 solid transparent;
+}
+
+.card {
+    background-color: rgb(17 23 151) !important;
+    box-shadow: 0 0.3rem 0.8rem rgb(0 0 0 / 12%);
+    /* background-image: linear-gradient(90deg, rgb(11, 22, 149), rgb(189, 39, 197)); */
+    margin-bottom: 1.5rem;
+    border: 0 solid transparent;
+
+}
+
+/* .progress-bar {
+    color: #fff;
+    background-color: #bc27c5 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden !important;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #0d6efd;
+    transition: width .6s ease;
+    border-radius: 15px !important;
+} */
+.progress_bar {
+    background-color: #bc27c5 !important;
+    height: 7px;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .page-wrapper {
+        margin-top: 20px !important;
+    }
+}
+
+.page-wrapper {
+    height: 100%;
+    margin-top: -34px !important;
+    margin-bottom: 0rem;
+    margin-left: 0px;
+}
+
+.height_manage {
+    height: 30rem !important;
+}
+
+.height_styke_team {
+    height: 9rem !important;
+}
+
+@media screen and (max-width:1000px) {
+    .height_manage {
+        height: auto !important;
+
+    }
+
+    #income-h4 {
+        font-size: 40px !important;
+    }
+
+    .height_styke_team {
+        height: auto !important;
+    }
+
+    .dashboradtop {
+        margin-top: 2rem !important;
+    }
+
+    .card-body p {
+        font-size: 40px !important;
+
+    }
+
+    .dash-h3 {
+        font-size: 40px;
+    }
+
+    .card1 {
+        padding: 20px 50px !important;
+    }
+    .fontsize {
+        font-size: 2rem !important;
+    }
+
+    .copy_btn_set2 {
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 0.5rem 2px 0.5rem  !important;
+        line-height: 40px;
+        border-radius: 8px;
+        font-size: 2.5rem !important;
+        -webkit-transform-origin: right;
+        transform-origin: right;
+        transition: all .3s ease;
+        background: #5138ee;
+        font-weight: 700;
+    }
+
+    .wdg-input-box {
+        border: 1px solid #fff!important;
+        border-radius: 7px;
+        padding: 10px 10px 10px 1rem;
+        color: #000 !important;
+        /* background-color: #fff !important; */
+        width: 185% !important;
+        font-size: 2rem !important;
+    }
+
+    .fontdata{
+        font-size: 2rem !important;
+    }
+    .barcontainer {
+        background-color: #cbecef;
+        position: relative;
+        transform: translateY(-50%);
+        top: 41%;
+        width: 150px;
+        height: 329px;
+        left: 31% !important;
+    }
+    .bar {
+        background-color: #bc27c5;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 80%;
+        /* border-top: 6px solid #FFF; */
+        box-sizing: border-box;
+        animation: grow 1.5s ease-out forwards;
+        transform-origin: bottom;
+        height: 50% !important;
+    }
+    .cardfontshare{
+        font-size: 21px !important;
+    }
+    small{
+        font-size: 31px !important;
+    }
+
+}
+
+.card-body p {
+    font-size: 21px;
+
+}
+
+.Prg_container {
+    height: 26rem !important;
+    overflow: hidden;
+    position: relative;
+}
+
+
+@media screen and (max-width:800px) {
+   
+}
+
+.copy_btn_set{
+   display: flex;
+   justify-content: space-between !important;
+}
+
+
+.Global_Position {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem !important;
+}
+

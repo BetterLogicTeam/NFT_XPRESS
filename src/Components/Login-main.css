@@ -1,0 +1,19 @@
+.floating-input{
+    background-color: rgb(17 23 151) !important;
+    color: white;
+}
+
+.select-system{
+    width: 100%;
+    height: 42px;
+    border-radius: 6px;
+    background-color: rgb(17 23 151);
+    color: white;
+}
+
+@media screen and  (max-width:800px) {
+   
+}
+.loginpage{
+    margin-top: 13rem !important;
+}
