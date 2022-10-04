@@ -23,16 +23,17 @@ const Level_Details = () => {
     const referral_API = async () => {
         try {
             const user = localStorage?.getItem("user");
+            console.log("user0",user);
 
-            let responce = await API?.post('/level_details', {
+            let responce = await API.post('/level_details', {
                 "uid": user,
                 "level": LevelFilter,
                 "position": positionfilter,
-                "status": StatusFilter
+                "status": StatusFilter              
             })
             responce = responce?.data?.data;
-            console.log("Level",responce);
-            setreferralApi([])
+            console.log("Level", responce);
+            // setreferralApi([])
 
             let arr = []
             responce.forEach((item, index) => {
@@ -61,6 +62,9 @@ const Level_Details = () => {
     }
 
 
+    useEffect(() => {
+        referral_API()
+    }, [])
     useEffect(() => {
         referral_API()
     }, [LevelFilter, positionfilter, StatusFilter])

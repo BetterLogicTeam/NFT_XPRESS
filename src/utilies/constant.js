@@ -1,1029 +1,6 @@
 //   Mint with 100
-export const GLABA_NFT = "0x2F6d03c42320b76dA1e373bE0cC9c3ec08D20e70";
+export const GLABA_NFT = "0x9C745c6Df1de64a022800f4A675c62e3799b3adb";
 export const GLABA_NFT_ABI = [{
-    "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-    }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_BUSD",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_bnbtobusd",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp",
-        "type": "address"
-    }],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "approved",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Approval",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "ApprovalForAll",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "OwnershipTransferred",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Transfer",
-    "type": "event"
-}, {
-    "inputs": [],
-    "name": "BUSD",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BUSDtobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BnbtoBusd",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "Claimtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_BUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMintingPricein_BNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnblp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "ValueinToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_BUSD",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Whitelist_MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "addressMintedBalance",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "approve",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }],
-    "name": "balanceOf",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "baseURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbbusdlp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "excludefromlimits",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "getApproved",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "initialMintTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }],
-    "name": "isApprovedForAll",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "iswhitelist",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "lastsend",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "liveprice",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount1",
-        "type": "uint256"
-    }],
-    "name": "mint_with_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "mintedNFTs",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "name",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "notRevealedUri",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "ownerOf",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "paused",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pausedminting",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pricetime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "reveal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "revealed",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }, {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newBaseURI",
-        "type": "string"
-    }],
-    "name": "setBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setDisablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_notRevealedURI",
-        "type": "string"
-    }],
-    "name": "setNotRevealedURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setTokenprice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "setWhitelist_MaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newbaseExtension",
-        "type": "string"
-    }],
-    "name": "setbaseExtension",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setenablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setexcludefromlimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_newdays",
-        "type": "uint256"
-    }],
-    "name": "setlimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepricedisenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepriceenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newnotRevealedUri",
-        "type": "string"
-    }],
-    "name": "setnotRevealedUri",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_stakingcontract",
-        "type": "address"
-    }],
-    "name": "setstaking",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setwhitelist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-    }],
-    "name": "supportsInterface",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenOfOwnerByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-    }],
-    "name": "tokenURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "tokenmint",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "transferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "unpaused",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
-    }],
-    "name": "walletOfOwner",
-    "outputs": [{
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawBUSDtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawothertoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}]
-export const GLABA_NFT_1 = "0x36E7d347AaE062025670847BC452233433c04ce8";
-export const GLABA_NFT_ABI_1 = [{
     "inputs": [{
         "internalType": "string",
         "name": "_name",
@@ -1206,6 +183,16 @@ export const GLABA_NFT_ABI_1 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPrice_with_single",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -1223,6 +210,16 @@ export const GLABA_NFT_ABI_1 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPrice_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -1347,6 +344,16 @@ export const GLABA_NFT_ABI_1 = [{
 }, {
     "inputs": [],
     "name": "ValueinToken1",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "ValueinToken_single",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -1593,6 +600,20 @@ export const GLABA_NFT_ABI_1 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }],
+    "name": "mint_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }, {
         "internalType": "uint256",
         "name": "amount1",
@@ -1600,7 +621,7 @@ export const GLABA_NFT_ABI_1 = [{
     }],
     "name": "mint_with_token",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -1844,6 +865,16 @@ export const GLABA_NFT_ABI_1 = [{
         "name": "value",
         "type": "uint256"
     }],
+    "name": "setToken1price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
     "name": "setTokenprice",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -1855,6 +886,16 @@ export const GLABA_NFT_ABI_1 = [{
         "type": "uint256"
     }],
     "name": "setWhitelist_MaxLimitPerTransaction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_ValueinToken_single_price",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -2139,7 +1180,7 @@ export const GLABA_NFT_ABI_1 = [{
 
 
 // Mint With 500--------------------------------------------------------------------
-export const GLABA_NFT_500 = "0xd68E5A83Fe9746e949BA20c3dC6BA6D8750B2aE7";
+export const GLABA_NFT_500 = "0x8EA554A0160667118AC2A223c3ff3D5c9bad73C5";
 export const GLABA_NFT_ABI_500 = [{
     "inputs": [{
         "internalType": "string",
@@ -2158,1029 +1199,6 @@ export const GLABA_NFT_ABI_500 = [{
         "name": "_BUSD",
         "type": "address"
     }, {
-        "internalType": "contract IPancakePair",
-        "name": "_bnbtobusd",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp",
-        "type": "address"
-    }],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "approved",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Approval",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "ApprovalForAll",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "OwnershipTransferred",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Transfer",
-    "type": "event"
-}, {
-    "inputs": [],
-    "name": "BUSD",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BUSDtobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BnbtoBusd",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "Claimtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_BUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMintingPricein_BNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnblp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "ValueinToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_BUSD",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Whitelist_MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "addressMintedBalance",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "approve",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }],
-    "name": "balanceOf",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "baseURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbbusdlp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "excludefromlimits",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "getApproved",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "initialMintTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }],
-    "name": "isApprovedForAll",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "iswhitelist",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "lastsend",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "liveprice",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount1",
-        "type": "uint256"
-    }],
-    "name": "mint_with_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "mintedNFTs",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "name",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "notRevealedUri",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "ownerOf",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "paused",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pausedminting",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pricetime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "reveal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "revealed",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }, {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newBaseURI",
-        "type": "string"
-    }],
-    "name": "setBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setDisablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_notRevealedURI",
-        "type": "string"
-    }],
-    "name": "setNotRevealedURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setTokenprice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "setWhitelist_MaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newbaseExtension",
-        "type": "string"
-    }],
-    "name": "setbaseExtension",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setenablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setexcludefromlimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_newdays",
-        "type": "uint256"
-    }],
-    "name": "setlimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepricedisenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepriceenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newnotRevealedUri",
-        "type": "string"
-    }],
-    "name": "setnotRevealedUri",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_stakingcontract",
-        "type": "address"
-    }],
-    "name": "setstaking",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setwhitelist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-    }],
-    "name": "supportsInterface",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenOfOwnerByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-    }],
-    "name": "tokenURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "tokenmint",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "transferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "unpaused",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
-    }],
-    "name": "walletOfOwner",
-    "outputs": [{
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawBUSDtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawothertoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}]
-export const GLABA_NFT_20_500 = "0x026e93F84A3E36b34c3a7E1B6117c0Ab77b9D7f2";
-export const GLABA_NFT_ABI_20_500 = [{
-    "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-    }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_BUSD",
-        "type": "address"
-    }, {
         "internalType": "contract IBEP20",
         "name": "_Token1",
         "type": "address"
@@ -3346,6 +1364,16 @@ export const GLABA_NFT_ABI_20_500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPrice_with_single",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -3363,6 +1391,16 @@ export const GLABA_NFT_ABI_20_500 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPrice_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -3487,6 +1525,16 @@ export const GLABA_NFT_ABI_20_500 = [{
 }, {
     "inputs": [],
     "name": "ValueinToken1",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "ValueinToken_single",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -3733,6 +1781,20 @@ export const GLABA_NFT_ABI_20_500 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }],
+    "name": "mint_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }, {
         "internalType": "uint256",
         "name": "amount1",
@@ -3740,7 +1802,7 @@ export const GLABA_NFT_ABI_20_500 = [{
     }],
     "name": "mint_with_token",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -3984,6 +2046,16 @@ export const GLABA_NFT_ABI_20_500 = [{
         "name": "value",
         "type": "uint256"
     }],
+    "name": "setToken1price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
     "name": "setTokenprice",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -3995,6 +2067,16 @@ export const GLABA_NFT_ABI_20_500 = [{
         "type": "uint256"
     }],
     "name": "setWhitelist_MaxLimitPerTransaction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_ValueinToken_single_price",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -4274,11 +2356,12 @@ export const GLABA_NFT_ABI_20_500 = [{
     "type": "function"
 }]
 
+
 // End 500-----------------------------------------------------------------------------
 
 
 // Mint With 1000-------------------------------------------------------------------------
-export const GLABA_NFT_1000 = "0x927c5a57ff9C0697204878393f467cB412c1fFcF";
+export const GLABA_NFT_1000 = "0x2863270F6588C11ff78d8577FFbb9f8cEDB29bCA";
 export const GLABA_NFT_ABI_1000 = [{
     "inputs": [{
         "internalType": "string",
@@ -4297,1029 +2380,6 @@ export const GLABA_NFT_ABI_1000 = [{
         "name": "_BUSD",
         "type": "address"
     }, {
-        "internalType": "contract IPancakePair",
-        "name": "_bnbtobusd",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp",
-        "type": "address"
-    }],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "approved",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Approval",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "ApprovalForAll",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "OwnershipTransferred",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Transfer",
-    "type": "event"
-}, {
-    "inputs": [],
-    "name": "BUSD",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BUSDtobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BnbtoBusd",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "Claimtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_BUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMintingPricein_BNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnblp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "ValueinToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_BUSD",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Whitelist_MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "addressMintedBalance",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "approve",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }],
-    "name": "balanceOf",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "baseURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbbusdlp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "excludefromlimits",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "getApproved",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "initialMintTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }],
-    "name": "isApprovedForAll",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "iswhitelist",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "lastsend",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "liveprice",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount1",
-        "type": "uint256"
-    }],
-    "name": "mint_with_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "mintedNFTs",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "name",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "notRevealedUri",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "ownerOf",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "paused",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pausedminting",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pricetime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "reveal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "revealed",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }, {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newBaseURI",
-        "type": "string"
-    }],
-    "name": "setBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setDisablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_notRevealedURI",
-        "type": "string"
-    }],
-    "name": "setNotRevealedURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setTokenprice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "setWhitelist_MaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newbaseExtension",
-        "type": "string"
-    }],
-    "name": "setbaseExtension",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setenablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setexcludefromlimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_newdays",
-        "type": "uint256"
-    }],
-    "name": "setlimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepricedisenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepriceenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newnotRevealedUri",
-        "type": "string"
-    }],
-    "name": "setnotRevealedUri",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_stakingcontract",
-        "type": "address"
-    }],
-    "name": "setstaking",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setwhitelist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-    }],
-    "name": "supportsInterface",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenOfOwnerByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-    }],
-    "name": "tokenURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "tokenmint",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "transferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "unpaused",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
-    }],
-    "name": "walletOfOwner",
-    "outputs": [{
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawBUSDtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawothertoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}]
-export const GLABA_NFT_20_1000 = "0xbc42C9a93B7903b134152851D2D38556D4bb5a96";
-export const GLABA_NFT_ABI_20_1000 = [{
-    "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-    }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_BUSD",
-        "type": "address"
-    }, {
         "internalType": "contract IBEP20",
         "name": "_Token1",
         "type": "address"
@@ -5485,6 +2545,16 @@ export const GLABA_NFT_ABI_20_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPrice_with_single",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -5502,6 +2572,16 @@ export const GLABA_NFT_ABI_20_1000 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPrice_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -5626,6 +2706,16 @@ export const GLABA_NFT_ABI_20_1000 = [{
 }, {
     "inputs": [],
     "name": "ValueinToken1",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "ValueinToken_single",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -5872,6 +2962,20 @@ export const GLABA_NFT_ABI_20_1000 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }],
+    "name": "mint_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }, {
         "internalType": "uint256",
         "name": "amount1",
@@ -5879,7 +2983,7 @@ export const GLABA_NFT_ABI_20_1000 = [{
     }],
     "name": "mint_with_token",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -6123,6 +3227,16 @@ export const GLABA_NFT_ABI_20_1000 = [{
         "name": "value",
         "type": "uint256"
     }],
+    "name": "setToken1price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
     "name": "setTokenprice",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -6134,6 +3248,16 @@ export const GLABA_NFT_ABI_20_1000 = [{
         "type": "uint256"
     }],
     "name": "setWhitelist_MaxLimitPerTransaction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_ValueinToken_single_price",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -6420,7 +3544,7 @@ export const GLABA_NFT_ABI_20_1000 = [{
 
 
 // Mint With 2500-------------------------------------------------------------------------
-export const GLABA_NFT_2500 = "0x3786425118F00a87ce01fC968c5e7B86e3Bbaf4c";
+export const GLABA_NFT_2500 = "0xE1Fa6054f62D803E658ffAA2ad29680874fC9C3b";
 export const GLABA_NFT_ABI_2500 = [{
     "inputs": [{
         "internalType": "string",
@@ -6439,1029 +3563,6 @@ export const GLABA_NFT_ABI_2500 = [{
         "name": "_BUSD",
         "type": "address"
     }, {
-        "internalType": "contract IPancakePair",
-        "name": "_bnbtobusd",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp",
-        "type": "address"
-    }],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "approved",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Approval",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "ApprovalForAll",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "OwnershipTransferred",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Transfer",
-    "type": "event"
-}, {
-    "inputs": [],
-    "name": "BUSD",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BUSDtobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BnbtoBusd",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "Claimtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_BUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMintingPricein_BNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnblp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "ValueinToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_BUSD",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Whitelist_MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "addressMintedBalance",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "approve",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }],
-    "name": "balanceOf",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "baseURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbbusdlp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "excludefromlimits",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "getApproved",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "initialMintTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }],
-    "name": "isApprovedForAll",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "iswhitelist",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "lastsend",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "liveprice",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount1",
-        "type": "uint256"
-    }],
-    "name": "mint_with_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "mintedNFTs",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "name",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "notRevealedUri",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "ownerOf",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "paused",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pausedminting",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pricetime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "reveal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "revealed",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }, {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newBaseURI",
-        "type": "string"
-    }],
-    "name": "setBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setDisablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_notRevealedURI",
-        "type": "string"
-    }],
-    "name": "setNotRevealedURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setTokenprice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "setWhitelist_MaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newbaseExtension",
-        "type": "string"
-    }],
-    "name": "setbaseExtension",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setenablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setexcludefromlimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_newdays",
-        "type": "uint256"
-    }],
-    "name": "setlimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepricedisenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepriceenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newnotRevealedUri",
-        "type": "string"
-    }],
-    "name": "setnotRevealedUri",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_stakingcontract",
-        "type": "address"
-    }],
-    "name": "setstaking",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setwhitelist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-    }],
-    "name": "supportsInterface",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenOfOwnerByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-    }],
-    "name": "tokenURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "tokenmint",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "transferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "unpaused",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
-    }],
-    "name": "walletOfOwner",
-    "outputs": [{
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawBUSDtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawothertoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}]
-export const GLABA_NFT_20_2500 = "0x48443Acf9754A0Ef2Ae458B3B7a78E57dFb7aA3B";
-export const GLABA_NFT_ABI_20_2500 = [{
-    "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-    }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_BUSD",
-        "type": "address"
-    }, {
         "internalType": "contract IBEP20",
         "name": "_Token1",
         "type": "address"
@@ -7627,6 +3728,16 @@ export const GLABA_NFT_ABI_20_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPrice_with_single",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -7644,6 +3755,16 @@ export const GLABA_NFT_ABI_20_2500 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPrice_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -7768,6 +3889,16 @@ export const GLABA_NFT_ABI_20_2500 = [{
 }, {
     "inputs": [],
     "name": "ValueinToken1",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "ValueinToken_single",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -8014,6 +4145,20 @@ export const GLABA_NFT_ABI_20_2500 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }],
+    "name": "mint_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }, {
         "internalType": "uint256",
         "name": "amount1",
@@ -8021,7 +4166,7 @@ export const GLABA_NFT_ABI_20_2500 = [{
     }],
     "name": "mint_with_token",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -8265,6 +4410,16 @@ export const GLABA_NFT_ABI_20_2500 = [{
         "name": "value",
         "type": "uint256"
     }],
+    "name": "setToken1price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
     "name": "setTokenprice",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -8276,6 +4431,16 @@ export const GLABA_NFT_ABI_20_2500 = [{
         "type": "uint256"
     }],
     "name": "setWhitelist_MaxLimitPerTransaction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_ValueinToken_single_price",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -8554,10 +4719,11 @@ export const GLABA_NFT_ABI_20_2500 = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }]
+
 // End 2500----------------------------------------------------------------------------------
 
 // Mint With 5000-------------------------------------------------------------------------
-export const GLABA_NFT_5000 = "0xb7Be3D240316164503fE952a6C8fF0B35F0bAE42";
+export const GLABA_NFT_5000 = "0xa63699a54aE0AA0C0F7B75Eb76F0Ee0AdeC19dB2";
 export const GLABA_NFT_ABI_5000 = [{
     "inputs": [{
         "internalType": "string",
@@ -8576,1029 +4742,6 @@ export const GLABA_NFT_ABI_5000 = [{
         "name": "_BUSD",
         "type": "address"
     }, {
-        "internalType": "contract IPancakePair",
-        "name": "_bnbtobusd",
-        "type": "address"
-    }, {
-        "internalType": "contract IPancakePair",
-        "name": "_Tokentobnblp",
-        "type": "address"
-    }],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "approved",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Approval",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "indexed": false,
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "ApprovalForAll",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "previousOwner",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "OwnershipTransferred",
-    "type": "event"
-}, {
-    "anonymous": false,
-    "inputs": [{
-        "indexed": true,
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "Transfer",
-    "type": "event"
-}, {
-    "inputs": [],
-    "name": "BUSD",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BUSDtobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "BnbtoBusd",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "ClaimBUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "Claimtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "MinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_BUSD",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMinitngPricein_Token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "SetWhitelistMintingPricein_BNB",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Token",
-    "outputs": [{
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnb",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Tokentobnblp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "ValueinToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_BUSD",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMinitngPricein_token",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "Whitelist_MaxLimitPerTransaction",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "addressMintedBalance",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "approve",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }],
-    "name": "balanceOf",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "baseURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbbusdlp",
-    "outputs": [{
-        "internalType": "contract IPancakePair",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "bnbtoToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "excludefromlimits",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "getApproved",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "name": "initialMintTime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }],
-    "name": "isApprovedForAll",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "iswhitelist",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "lastsend",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "liveprice",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "maxsupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_count",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount",
-        "type": "uint256"
-    }, {
-        "internalType": "uint256",
-        "name": "amount1",
-        "type": "uint256"
-    }],
-    "name": "mint_with_token",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "name": "mintedNFTs",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "name",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "notRevealedUri",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "one$toToken",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "owner",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "ownerOf",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "paused",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pausedminting",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "pricetime",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "reveal",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "revealed",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }, {
-        "internalType": "bytes",
-        "name": "_data",
-        "type": "bytes"
-    }],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "operator",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "approved",
-        "type": "bool"
-    }],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newBaseURI",
-        "type": "string"
-    }],
-    "name": "setBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setDisablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "setMaxSupply",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_notRevealedURI",
-        "type": "string"
-    }],
-    "name": "setNotRevealedURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setRevealed",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "value",
-        "type": "uint256"
-    }],
-    "name": "setTokenprice",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_value",
-        "type": "uint256"
-    }],
-    "name": "setWhitelist_MaxLimitPerTransaction",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newbaseExtension",
-        "type": "string"
-    }],
-    "name": "setbaseExtension",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setenablemintwithtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }],
-    "name": "setexcludefromlimits",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_newdays",
-        "type": "uint256"
-    }],
-    "name": "setlimit",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepricedisenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "setlivepriceenable",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "string",
-        "name": "_newnotRevealedUri",
-        "type": "string"
-    }],
-    "name": "setnotRevealedUri",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_stakingcontract",
-        "type": "address"
-    }],
-    "name": "setstaking",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "bool",
-        "name": "_state",
-        "type": "bool"
-    }],
-    "name": "setwhitelist",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "staking",
-    "outputs": [{
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "bytes4",
-        "name": "interfaceId",
-        "type": "bytes4"
-    }],
-    "name": "supportsInterface",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "owner",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "index",
-        "type": "uint256"
-    }],
-    "name": "tokenOfOwnerByIndex",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_tokenId",
-        "type": "uint256"
-    }],
-    "name": "tokenURI",
-    "outputs": [{
-        "internalType": "string",
-        "name": "",
-        "type": "string"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "tokenmint",
-    "outputs": [{
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [{
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "from",
-        "type": "address"
-    }, {
-        "internalType": "address",
-        "name": "to",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "tokenId",
-        "type": "uint256"
-    }],
-    "name": "transferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-    }],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [],
-    "name": "unpaused",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_owner",
-        "type": "address"
-    }],
-    "name": "walletOfOwner",
-    "outputs": [{
-        "internalType": "uint256[]",
-        "name": "",
-        "type": "uint256[]"
-    }],
-    "stateMutability": "view",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdraw",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawBUSDtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "address",
-        "name": "_addr",
-        "type": "address"
-    }, {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawothertoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}, {
-    "inputs": [{
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
-    }],
-    "name": "withdrawtoken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-}]
-export const GLABA_NFT_20_5000 = "0x41a007FA6f89cf050CaC4a69233672E5c2E837FD";
-export const GLABA_NFT_ABI_20_5000 = [{
-    "inputs": [{
-        "internalType": "string",
-        "name": "_name",
-        "type": "string"
-    }, {
-        "internalType": "string",
-        "name": "_symbol",
-        "type": "string"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_Token",
-        "type": "address"
-    }, {
-        "internalType": "contract IBEP20",
-        "name": "_BUSD",
-        "type": "address"
-    }, {
         "internalType": "contract IBEP20",
         "name": "_Token1",
         "type": "address"
@@ -9764,6 +4907,16 @@ export const GLABA_NFT_ABI_20_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPrice_with_single",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -9781,6 +4934,16 @@ export const GLABA_NFT_ABI_20_5000 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPrice_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -9905,6 +5068,16 @@ export const GLABA_NFT_ABI_20_5000 = [{
 }, {
     "inputs": [],
     "name": "ValueinToken1",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "ValueinToken_single",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -10151,6 +5324,20 @@ export const GLABA_NFT_ABI_20_5000 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }],
+    "name": "mint_with_single",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
     }, {
         "internalType": "uint256",
         "name": "amount1",
@@ -10158,7 +5345,7 @@ export const GLABA_NFT_ABI_20_5000 = [{
     }],
     "name": "mint_with_token",
     "outputs": [],
-    "stateMutability": "payable",
+    "stateMutability": "nonpayable",
     "type": "function"
 }, {
     "inputs": [{
@@ -10402,6 +5589,16 @@ export const GLABA_NFT_ABI_20_5000 = [{
         "name": "value",
         "type": "uint256"
     }],
+    "name": "setToken1price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
     "name": "setTokenprice",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -10413,6 +5610,16 @@ export const GLABA_NFT_ABI_20_5000 = [{
         "type": "uint256"
     }],
     "name": "setWhitelist_MaxLimitPerTransaction",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_ValueinToken_single_price",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -10691,6 +5898,7 @@ export const GLABA_NFT_ABI_20_5000 = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }]
+
 // End 5000----------------------------------------------------------------------------------
 
 // Token Addresses------------------------------------------------------------------------------

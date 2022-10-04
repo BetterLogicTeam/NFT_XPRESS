@@ -79,7 +79,7 @@ function Login_main() {
             //     history('/Wallet_Address_change')
             // }else{
             navigate('/dashboard')
-            window.onload()
+            window.location.reload();
 
 
         } else {
@@ -181,7 +181,7 @@ function Login_main() {
                                     Create an Account  <Link to="/Register_main"> <a class="text-white" >Sign Up</a></Link>
                                 </p>
                                 <p class="mt-3" className='Styelnone text-white'>
-                                    Go to  <Link to="/" className='text-white'>Home</Link>
+                                    Go to  <a href='/ ' className='text-white'>Home</a>
 
                                 </p>
 

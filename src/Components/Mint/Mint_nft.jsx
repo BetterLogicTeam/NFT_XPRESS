@@ -14,14 +14,18 @@ import horseboth2 from '../../assets/horseboth2.jpg'
 import horseboth3 from '../../assets/horseboth3.jpg'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import { GLABA_NFT, GLABA_NFT_1, GLABA_NFT_1000, GLABA_NFT_20_1000, GLABA_NFT_20_2500, GLABA_NFT_20_500, GLABA_NFT_20_5000, GLABA_NFT_2500, GLABA_NFT_500, GLABA_NFT_5000, GLABA_NFT_ABI, GLABA_NFT_ABI_1, GLABA_NFT_ABI_1000, GLABA_NFT_ABI_20_1000, GLABA_NFT_ABI_20_2500, GLABA_NFT_ABI_20_500, GLABA_NFT_ABI_20_5000, GLABA_NFT_ABI_2500, GLABA_NFT_ABI_500, GLABA_NFT_ABI_5000, LaRace_Governance_Token, LaRace_Governance_Token_ABI, WIRE_Token, WIRE_Token_ABI } from '../../utilies/constant'
+import { GLABA_NFT, GLABA_NFT_1000, GLABA_NFT_2500, GLABA_NFT_500, GLABA_NFT_5000, GLABA_NFT_ABI, GLABA_NFT_ABI_1000, GLABA_NFT_ABI_20_5000, GLABA_NFT_ABI_2500, GLABA_NFT_ABI_500, GLABA_NFT_ABI_5000, LaRace_Governance_Token, LaRace_Governance_Token_ABI, WIRE_Token, WIRE_Token_ABI } from '../../utilies/constant'
 import { loadWeb3 } from '../../apis/api'
 import Web3 from 'web3'
 import video from '../../assets/video.mp4'
 import Secondvideo from '../../assets/second_video.mp4'
+import { API } from '../../Redux/actions/API'
+import { useNavigate } from 'react-router-dom'
 
 
 export default function Mint_nft() {
+    let navigate = useNavigate()
+
     let [value, setValue] = useState(1)
     let [btnOne, setButtonOne] = useState("Mint With Dual");
     let [btnTwo, setButtonTwo] = useState("Mint With LAR");
@@ -57,10 +61,9 @@ export default function Mint_nft() {
     }
 
     const MintwithDual = async () => {
-        // console.log("res",inputValue)
-        // setShowModal(false)
+
         let acc = await loadWeb3();
-        // console.log("ACC=",acc)
+
         if (acc == "No Wallet") {
             toast.error("No Wallet Connected")
         }
@@ -70,192 +73,201 @@ export default function Mint_nft() {
         } else {
             try {
 
-                // let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
+                let res = await API.get(`/getDashboardValues?id=${user}`)
+                res = res.data.data[0]
+                let own_Address = res.address
+                console.log("res_Mint", own_Address == acc);
                 // res = res.data.data;
+                if (own_Address == "") {
+                    toast.error("Please Update Your Profile")
+                    navigate('/dashboard/Profile')
 
-                // if (res == 1) {
-                try {
+                } else if (own_Address == acc) {
+                    try {
 
-                    setButtonOne("Please Wait While Processing")
-                    const web3 = window.web3;
-                    let nftTokenOf_La_Race = new web3.eth.Contract(LaRace_Governance_Token_ABI, LaRace_Governance_Token);
-                    let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
-                    let nftContractOf
-                    if (contract_select == 100) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1, GLABA_NFT_1);
+                        setButtonOne("Please Wait While Processing")
+                        const web3 = window.web3;
+                        let nftTokenOf_La_Race = new web3.eth.Contract(LaRace_Governance_Token_ABI, LaRace_Governance_Token);
+                        let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
+                        let nftContractOf
+                        if (contract_select == 100) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI, GLABA_NFT);
 
-                    } else if (contract_select == 500) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_500, GLABA_NFT_20_500);
-
-                    } else if (contract_select == 1000) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_1000, GLABA_NFT_20_1000);
-
-                    } else if (contract_select == 2500) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_2500, GLABA_NFT_20_2500);
-
-                    } else if (contract_select == 5000) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_5000, GLABA_NFT_20_5000);
-
-                    }
-
-                    let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                    if (value > totalnft) {
-                        toast.error(`Maximum Limit is ${totalnft} `)
-                    } else {
-                        let maxSupply = await nftContractOf.methods.maxsupply().call();
-                        let ttlSupply = await nftContractOf.methods.totalSupply().call();
-                        let paused = await nftContractOf.methods.paused().call();
-                        let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                        let mintingbnbPrice_Toke_1 = await nftContractOf.methods.ValueinToken().call()
-                        mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
-                        mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
-                        let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + 0.0001
-                        console.log("totalMintingPriceToken_2", totalMintingPriceToken_1);
+                        } else if (contract_select == 500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_500, GLABA_NFT_500);
 
 
-                        totalMintingPriceToken_1 = web3.utils.toWei(totalMintingPriceToken_1.toString())
+                        } else if (contract_select == 1000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1000, GLABA_NFT_1000);
+
+                        } else if (contract_select == 2500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
+
+                        } else if (contract_select == 5000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
+
+                        }
+
+                        let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                        if (value > totalnft) {
+                            toast.error(`Maximum Limit is ${totalnft} `)
+                        } else {
+                            let maxSupply = await nftContractOf.methods.maxsupply().call();
+                            let ttlSupply = await nftContractOf.methods.totalSupply().call();
+                            let paused = await nftContractOf.methods.paused().call();
+                            let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.ValueinToken().call()
+                            mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
+                            mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
+                            let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + 0.0001
+                            console.log("totalMintingPriceToken_2", totalMintingPriceToken_1);
+
+
+                            totalMintingPriceToken_1 = web3.utils.toWei(totalMintingPriceToken_1.toString())
 
 
 
-                        let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
-                        mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
-                        mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
-                        let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + 0.0001
-                        // if (minting_counter == 1) {
+                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
+                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
+                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
+                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + 0.0001
+                            // if (minting_counter == 1) {
 
-                        //     totalMintingPriceToken_2 = value * mintingbnbPrice_Toke_2
-                        //     console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
-                        // } else if (minting_counter == 2) {
-                        //     totalMintingPriceToken_2 = value * mintingbnbPrice_Toke_2 * 2
-                        //     console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
-
-
-                        // }
-                        totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+                            //     totalMintingPriceToken_2 = value * mintingbnbPrice_Toke_2
+                            //     console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
+                            // } else if (minting_counter == 2) {
+                            //     totalMintingPriceToken_2 = value * mintingbnbPrice_Toke_2 * 2
+                            //     console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
 
 
-                        if (parseInt(ttlSupply) < parseInt(maxSupply)) {
-                            if (paused == false) {
-                                if (value < parseInt(maxLimitprTransaction)) {
+                            // }
+                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
 
-                                    // console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
-                                    console.log("Parameter", value, totalMintingPriceToken_1, totalMintingPriceToken_2);
 
-                                    if (contract_select == 100) {
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_1, totalMintingPriceToken_1).send({
-                                            from: acc
+                            if (parseInt(ttlSupply) < parseInt(maxSupply)) {
+                                if (paused == false) {
+                                    if (value < parseInt(maxLimitprTransaction)) {
+
+                                        // console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
+                                        console.log("Parameter", value, totalMintingPriceToken_1, totalMintingPriceToken_2);
+
+                                        if (contract_select == 100) {
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed LaRace Governance Token")
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed Wire Token")
+
+
+
+                                        } else if (contract_select == 500) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_500, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed LaRace Governance Token")
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_500, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed Wire Token")
+
+                                        }
+                                        else if (contract_select == 1000) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed LaRace Governance Token")
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed Wire Token")
+
+                                        } else if (contract_select == 2500) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed LaRace Governance Token")
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed Wire Token")
+
+                                        } else if (contract_select == 5000) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed LaRace Governance Token")
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+                                            toast.success("Approve Confirmed Wire Token")
+
+                                        }
+
+
+                                        let hash = await nftContractOf.methods.mint_with_token(value, totalMintingPriceToken_1, totalMintingPriceToken_2).send({
+                                            from: acc,
+
+
                                         })
-                                        toast.success("Approve Confirmed LaRace Governance Token")
-                                        await nftTokenOf_Wire.methods.approve(GLABA_NFT_1, totalMintingPriceToken_2).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed Wire Token")
 
-
-                                    } else if (contract_select == 500) {
-
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_20_500, totalMintingPriceToken_1).send({
-                                            from: acc
+                                        setButtonOne("Mint With Dual")
+                                        console.log("hash", hash.transactionHash);
+                                        hash = hash.transactionHash
+                                        totalMintingPriceToken_1 = web3.utils.fromWei((totalMintingPriceToken_1).toString())
+                                        console.log("Ammount", acc);
+                                        let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
+                                            "uid": user,
+                                            "sid": "0",
+                                            "transaction": hash,
+                                            "amount": contract_select,
+                                            "useraddress": acc,
+                                            "tokenamount":  "0",
+                                            "quantity":value,
+                                            "type": "Without Referral ID"
                                         })
-                                        toast.success("Approve Confirmed LaRace Governance Token")
-                                        await nftTokenOf_Wire.methods.approve(GLABA_NFT_20_500, totalMintingPriceToken_2).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed Wire Token")
+                                        toast.success("Transaction Confirmed")
+                                        console.log("postapi", postapi);
+                                        // toast.success(postapi.data.data)
+                                        setinputdatahere(" ")
+
+                                    } else {
+                                        toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                                        setButtonOne("Mint With Dual")
 
                                     }
-                                    else if (contract_select == 1000) {
-
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_20_1000, totalMintingPriceToken_1).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed LaRace Governance Token")
-                                        await nftTokenOf_Wire.methods.approve(GLABA_NFT_20_1000, totalMintingPriceToken_2).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed Wire Token")
-
-                                    } else if (contract_select == 2500) {
-
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_20_2500, totalMintingPriceToken_1).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed LaRace Governance Token")
-                                        await nftTokenOf_Wire.methods.approve(GLABA_NFT_20_2500, totalMintingPriceToken_2).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed Wire Token")
-
-                                    } else if (contract_select == 5000) {
-
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_20_5000, totalMintingPriceToken_1).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed LaRace Governance Token")
-                                        await nftTokenOf_Wire.methods.approve(GLABA_NFT_20_5000, totalMintingPriceToken_2).send({
-                                            from: acc
-                                        })
-                                        toast.success("Approve Confirmed Wire Token")
-
-                                    }
-
-
-                                    let hash = await nftContractOf.methods.mint_with_token(value, totalMintingPriceToken_1, totalMintingPriceToken_2).send({
-                                        from: acc,
-                                        value: 0
-
-                                    })
-
-                                    setButtonOne("Mint With Dual")
-                                    console.log("hash", hash.transactionHash);
-                                    hash = hash.transactionHash
-                                    totalMintingPriceToken_1 = web3.utils.fromWei((totalMintingPriceToken_1).toString())
-                                    console.log("Ammount", acc);
-                                    let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
-                                        "uid": user,
-                                        "sid": "0",
-                                        "transaction": hash,
-                                        "amount": "100",
-                                        "useraddress": acc,
-                                        "tokenamount": totalMintingPriceToken_1,
-                                        "type": "Without Referral ID"
-                                    })
-                                    toast.success("Transaction Confirmed")
-                                    console.log("postapi", postapi);
-                                    // toast.success(postapi.data.data)
-                                    setinputdatahere(" ")
-
                                 } else {
-                                    toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                                    toast.error("Paused is True")
                                     setButtonOne("Mint With Dual")
 
                                 }
+
                             } else {
-                                toast.error("Paused is True")
+                                toast.error("Max Supply is Greater than total Supply")
                                 setButtonOne("Mint With Dual")
 
                             }
 
-                        } else {
-                            toast.error("Max Supply is Greater than total Supply")
-                            setButtonOne("Mint With Dual")
-
                         }
 
-                    }
+                    } catch (e) {
+                        console.log("Error while minting ", e)
+                        toast.error("Transaction failed")
+                        setButtonOne("Mint With Dual")
 
-                } catch (e) {
-                    console.log("Error while minting ", e)
-                    toast.error("Transaction failed")
-                    setButtonOne("Mint With Dual")
+                    }
+                } else {
+                    toast.error("Wrong Metamask Address")
+                    setinputdatahere(" ")
+
 
                 }
-                // } else {
-                //     toast.error("User Is Not Exists")
-                //     setinputdatahere(" ")
-
-
-                // }
 
 
             } catch (e) {
@@ -283,158 +295,168 @@ export default function Mint_nft() {
         } else {
             try {
 
-                // let res = await axios.get(`https://whebuynft.herokuapp.com/checkuser?id=${inputdatahere}`)
+                let res = await API.get(`/getDashboardValues?id=${user}`)
+                res = res.data.data[0]
+                let own_Address = res.address
+                console.log("res_Mint", own_Address == acc);
                 // res = res.data.data;
+                if (own_Address == "") {
+                    toast.error("Please Update Your Profile")
+                    navigate('/dashboard/Profile')
 
-                // if (res == 1) {
-                try {
+                } else if (own_Address == acc) {
+                    try {
 
-                    setButtonTwo("Please Wait While Processing")
-                    const web3 = window.web3;
-
-
-
-                    let nftTokenOf_La_Race = new web3.eth.Contract(LaRace_Governance_Token_ABI, LaRace_Governance_Token);
-                    let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
-                    let nftContractOf
-                    if (contract_select == 100) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI, GLABA_NFT);
-
-                    } else if (contract_select == 500) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_500, GLABA_NFT_500);
-
-                    } else if (contract_select == 1000) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1000, GLABA_NFT_1000);
-
-                    } else if (contract_select == 2500) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
-
-                    } else if (contract_select == 5000) {
-                        nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
-
-                    }
-
-                    let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                    if (value > totalnft) {
-                        toast.error(`Maximum Limit is ${totalnft} `)
-                    } else {
-                        let maxSupply = await nftContractOf.methods.maxsupply().call();
-                        let ttlSupply = await nftContractOf.methods.totalSupply().call();
-                        let paused = await nftContractOf.methods.paused().call();
-                        let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                        let mintingbnbPrice_Toke_1 = await nftContractOf.methods.ValueinToken().call()
-                        mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
-                        mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
-                        let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + 0.0001
-                        console.log("Change_price", totalMintingPriceToken_1);
-
-
-                        // if (minting_counter == 1) {
-
-                        //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1
-                        // } else if (minting_counter == 2) {
-                        //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1 * 2
-
-                        // }
-                        totalMintingPriceToken_1 = web3.utils.toWei(totalMintingPriceToken_1.toString())
+                        setButtonTwo("Please Wait While Processing")
+                        const web3 = window.web3;
 
 
 
+                        let nftTokenOf_La_Race = new web3.eth.Contract(LaRace_Governance_Token_ABI, LaRace_Governance_Token);
+                        let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
+                        let nftContractOf
+                        if (contract_select == 100) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI, GLABA_NFT);
 
-                        if (parseInt(ttlSupply) < parseInt(maxSupply)) {
-                            if (paused == false) {
-                                if (value < parseInt(maxLimitprTransaction)) {
+                        } else if (contract_select == 500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_500, GLABA_NFT_500);
 
-                                    if (contract_select == 100) {
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT, totalMintingPriceToken_1).send({
-                                            from: acc
+                        } else if (contract_select == 1000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1000, GLABA_NFT_1000);
+
+                        } else if (contract_select == 2500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
+
+                        } else if (contract_select == 5000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
+
+                        }
+
+                        let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                        if (value > totalnft) {
+                            toast.error(`Maximum Limit is ${totalnft} `)
+                        } else {
+                            let maxSupply = await nftContractOf.methods.maxsupply().call();
+                            let ttlSupply = await nftContractOf.methods.totalSupply().call();
+                            let paused = await nftContractOf.methods.paused().call();
+                            let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.ValueinToken_single().call()
+                            mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
+                            mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
+                            let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + 0.0001
+                            console.log("Change_price", totalMintingPriceToken_1);
+
+
+                            // if (minting_counter == 1) {
+
+                            //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1
+                            // } else if (minting_counter == 2) {
+                            //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1 * 2
+
+                            // }
+                            totalMintingPriceToken_1 = web3.utils.toWei(totalMintingPriceToken_1.toString())
+
+
+
+
+                            if (parseInt(ttlSupply) < parseInt(maxSupply)) {
+                                if (paused == false) {
+                                    if (value < parseInt(maxLimitprTransaction)) {
+
+                                        if (contract_select == 100) {
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 500) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_500, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 1000) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        }
+                                        else if (contract_select == 2500) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 5000) {
+
+                                            await nftTokenOf_La_Race.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        }
+
+
+                                        toast.success("Approve Confirmed LaRace Governance Token")
+
+
+                                        let hash = await nftContractOf.methods.mint_with_single(value, totalMintingPriceToken_1).send({
+                                            from: acc,
                                         })
+                                        setButtonTwo("Mint With LAR")
+                                        hash = hash.transactionHash
+                                        // console.log("hash", hash);
+                                        // console.log("APIDATA", user,contract_select,acc,totalMintingPriceToken_1,value);
 
-                                    } else if (contract_select == 500) {
+                                        // mintingbnbPrice=web3.utils.fromWei((mintingbnbPrice).toString())
+                                        let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
 
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_500, totalMintingPriceToken_1).send({
-                                            from: acc
+                                            "uid": user,
+                                            "sid": "0",
+                                            "transaction": hash,
+                                            "amount": contract_select,
+                                            "useraddress": acc,
+                                            "tokenamount":  "0",
+                                            "quantity":value,
+                                            "type": "Without Referral ID"
+                                           
                                         })
+                                        toast.success("Transaction Confirmed")
 
-                                    } else if (contract_select == 1000) {
+                                        console.log("postapi", postapi);
+                                        // toast.success(postapi.data.data)
+                                        setinputdatahere(" ")
 
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_1).send({
-                                            from: acc
-                                        })
+                                    } else {
+                                        toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                                        setButtonTwo("Mint With LAR")
 
                                     }
-                                    else if (contract_select == 2500) {
-
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_1).send({
-                                            from: acc
-                                        })
-
-                                    } else if (contract_select == 5000) {
-
-                                        await nftTokenOf_La_Race.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_1).send({
-                                            from: acc
-                                        })
-
-                                    }
-
-
-                                    toast.success("Approve Confirmed LaRace Governance Token")
-
-
-                                    let hash = await nftContractOf.methods.mint_with_token(value, totalMintingPriceToken_1, 0).send({
-                                        from: acc,
-                                    })
-                                    setButtonTwo("Mint With LAR")
-                                    // console.log("hash", hash.transactionHash);
-                                    hash = hash.transactionHash
-                                    // mintingbnbPrice=web3.utils.fromWei((mintingbnbPrice).toString())
-                                    let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
-
-                                        "uid": user,
-                                        "sid": "0",
-                                        "transaction": hash,
-                                        "amount": totalMintingPriceToken_1,
-                                        "useraddress": acc,
-                                        "tokenamount": "100",
-                                        "type": "Without Referral ID"
-                                    })
-                                    toast.success("Transaction Confirmed")
-
-                                    console.log("postapi", postapi);
-                                    // toast.success(postapi.data.data)
-                                    setinputdatahere(" ")
-
                                 } else {
-                                    toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                                    toast.error("Paused is True")
                                     setButtonTwo("Mint With LAR")
 
                                 }
+
                             } else {
-                                toast.error("Paused is True")
+                                toast.error("Max Supply is Greater than total Supply")
                                 setButtonTwo("Mint With LAR")
 
                             }
 
-                        } else {
-                            toast.error("Max Supply is Greater than total Supply")
-                            setButtonTwo("Mint With LAR")
-
                         }
 
-                    }
+                    } catch (e) {
+                        console.log("Error while minting ", e)
+                        toast.error("Transaction failed")
+                        setButtonTwo("Mint With LAR")
 
-                } catch (e) {
-                    console.log("Error while minting ", e)
-                    toast.error("Transaction failed")
-                    setButtonTwo("Mint With LAR")
+                    }
+                } else {
+                    toast.error("Wrong Metamask Address")
+                    setinputdatahere(" ")
+
 
                 }
-                // } else {
-                //     toast.error("User Is Not Exists")
-                //     setinputdatahere(" ")
-
-
-                // }
 
 
             } catch (e) {
@@ -467,20 +489,18 @@ export default function Mint_nft() {
                 const web3 = window.web3;
                 let nftContractOf
                 if (contract_select == 100) {
-                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1, GLABA_NFT_1);
+                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI, GLABA_NFT);
 
                 } else if (contract_select == 500) {
-                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_500, GLABA_NFT_20_500);
+                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_500, GLABA_NFT_500);
 
                 } else if (contract_select == 1000) {
-                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_1000, GLABA_NFT_20_1000);
+                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1000, GLABA_NFT_1000);
 
                 } else if (contract_select == 2500) {
-                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_2500, GLABA_NFT_20_2500);
-
+                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
                 } else if (contract_select == 5000) {
-                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_20_5000, GLABA_NFT_20_5000);
-
+                    nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
                 }
 
                 let mintingbnbPrice_Toke_1 = await nftContractOf.methods.ValueinToken().call()
@@ -526,7 +546,7 @@ export default function Mint_nft() {
                 }
 
 
-                let mintingbnbPrice_Toke_3 = await nftContractOf2.methods.ValueinToken().call()
+                let mintingbnbPrice_Toke_3 = await nftContractOf2.methods.ValueinToken_single().call()
                 mintingbnbPrice_Toke_3 = web3.utils.fromWei(mintingbnbPrice_Toke_3);
                 console.log("value1", mintingbnbPrice_Toke_3);
                 mintingbnbPrice_Toke_3 = parseFloat(mintingbnbPrice_Toke_3).toFixed(4)
@@ -598,7 +618,7 @@ export default function Mint_nft() {
                         </div>
                         <div className="col-lg-2 col-12 justify-content-center align-items-center mt-5 ">
                             <div className="nft-thumb">
-                                <video autoplay="true" controls loop     className="img_nft" alt="Metamax NFT" width="100%" >
+                                <video autoplay="true" controls loop className="img_nft" alt="Metamax NFT" width="100%" >
                                     <source src={video} type="video/mp4" />
                                 </video>
 
@@ -862,7 +882,7 @@ export default function Mint_nft() {
 
                                                     <div className="col-lg-6 mt-5  ">
 
-                                                        <video src={image}  autoplay="true" controls loop width="100%" style={{ height: "15rem" }} ></video>
+                                                        <video src={image} autoplay="true" controls loop width="100%" style={{ height: "15rem" }} ></video>
 
 
                                                         {/* {

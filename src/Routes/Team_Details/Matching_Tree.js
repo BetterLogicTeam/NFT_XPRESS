@@ -301,6 +301,8 @@ const Matching_Tree = () => {
                 "usersession_uid": "1"
             })
             responce = responce?.data?.data?.recordset;
+            console.log("Res_API", responce);
+
 
             setuserdata([
                 {
@@ -545,7 +547,6 @@ const Matching_Tree = () => {
                     Sponsor: ''
                 },
             ])
-            console.log("Res_API", responce);
             let arr = []
             responce.forEach((item, index) => {
 
@@ -563,8 +564,8 @@ const Matching_Tree = () => {
                     total_right: item.right_count,
                     total_right_active: item.totalright,
                     right_business: item.rbv,
-                    Sponsor: item.sid
-                    // date: item?.dd
+                    Sponsor: item.sid,
+                    date: item?.packageName
                 });
 
 
@@ -656,7 +657,9 @@ const Matching_Tree = () => {
         idinput.value = Idnumer;
 
     }, [Idnumer])
-
+    useEffect(() => {
+        referral_API()
+    }, [])
     function addValue(value) {
         setArrValue([...arrValue, value])
         // arrValue.push(value)
@@ -801,8 +804,8 @@ const Matching_Tree = () => {
                                                             </td>
                                                             <td className="table_heading">Package :</td>
                                                             <td className="grtydfbc">
-                                                                {/* {userdata[0]?.package} */}
-Name
+                                                                {userdata[0]?.date}
+
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -906,8 +909,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[1]?.package} */}
-Name
+                                                                    {userdata[1]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1012,8 +1015,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[2]?.package} */}
-Name
+                                                                    {userdata[2]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1134,8 +1137,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[3]?.package} */}
-Name
+                                                                    {userdata[3]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1239,8 +1242,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[4]?.package} */}
-Name
+                                                                    {userdata[4]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1346,8 +1349,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[5]?.package} */}
-Name
+                                                                    {userdata[5]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1449,8 +1452,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[6]?.package} */}
-Name
+                                                                    {userdata[6]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1570,8 +1573,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[7]?.package} */}
-Name
+                                                                    {userdata[7]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1676,8 +1679,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[8]?.package} */}
-Name
+                                                                    {userdata[8]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1782,8 +1785,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[9]?.package} */}
-Name
+                                                                    {userdata[9]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1888,8 +1891,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[10]?.package} */}
-Name
+                                                                    {userdata[10]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -1994,8 +1997,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[11]?.package} */}
-Name
+                                                                    {userdata[11]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -2100,8 +2103,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[12]?.package} */}
-Name
+                                                                    {userdata[12]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -2206,8 +2209,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[13]?.package} */}
-Name
+                                                                    {userdata[13]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -2312,8 +2315,8 @@ Name
                                                                 </td>
                                                                 <td className="table_heading">Package :</td>
                                                                 <td className="grtydfbc">
-                                                                    {/* {userdata[14]?.package} */}
-Name
+                                                                    {userdata[14]?.date}
+
                                                                 </td>
                                                             </tr>
                                                             <tr>

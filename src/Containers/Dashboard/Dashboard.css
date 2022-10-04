@@ -118,7 +118,7 @@
         padding: 10px 10px 10px 1rem;
         color: #000 !important;
         /* background-color: #fff !important; */
-        width: 185% !important;
+        width: 160% !important;
         font-size: 2rem !important;
     }
 
@@ -182,4 +182,5 @@
     justify-content: space-between;
     margin-top: 1.5rem !important;
 }
+
 

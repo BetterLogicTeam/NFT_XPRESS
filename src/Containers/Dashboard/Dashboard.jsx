@@ -63,6 +63,7 @@ const Dashboard = () => {
   const [packegeid, setpackegeid] = useState(0)
   const [gamedata, setgamedata] = useState(0)
   const [copyTest, setcopyTest] = useState(false)
+  const [Timer_data, setTimer_data] = useState()
 
   const [ctoincom, setctoincom] = useState(0)
   const [totalactivationamount, settotalactivationamount] = useState(0)
@@ -89,6 +90,10 @@ const Dashboard = () => {
   const [Hours_here, setHours_here] = useState(0)
   const [Munits_here, setMunits_here] = useState(0)
   const [Seconds, setSeconds] = useState(0)
+  const [Days_here2, setDays_here2] = useState(0)
+  const [Hours_here2, setHours_here2] = useState(0)
+  const [Munits_here2, setMunits_here2] = useState(0)
+  const [Seconds2, setSeconds2] = useState(0)
   const [TopupDate, setTopupDate] = useState(new Date());
 
   const [yesterdaycto, setyesterdaycto] = useState(0);
@@ -96,7 +101,7 @@ const Dashboard = () => {
   const [tt, settt] = useState(0);
 
 
-  // let earn=50
+  // let earn=0
   const DashboardAPI = async () => {
 
 
@@ -107,6 +112,12 @@ const Dashboard = () => {
       let res = await API.get(`/getDashboardValues?id=${user}`)
       res = res.data.data[0]
       console.log("res", res);
+      setTimer_data(res.Bonus7DayTimer)
+      localStorage.setItem("Timer1", res.Bonus7DayTimer);
+      localStorage.setItem("Timer2", res.Bonus30DayTimer);
+
+
+
       setTopupDate(res.quickStarterBonusTime)
       setTotalAirdropToken(res.TotalAirdropToken)
       setReceivedAirdropToken(res.ReceivedAirdropToken)
@@ -114,7 +125,7 @@ const Dashboard = () => {
       setleftbusiness(res.leftbusiness)
       setLeftDirect(res.LeftDirect)
       setBonus30DayTimer(res.Bonus30DayTimer)
-      setBonus7DayTimer(res.Bonus7DayTimer)
+     
       setTeamBonus(res.TeamBonus)
 
       setRightActiveDownline(res.RightActiveDownline)
@@ -185,17 +196,22 @@ const Dashboard = () => {
   }
 
 
+  const Timer1 = localStorage.getItem("Timer1");
+  const Timer2 = localStorage.getItem("Timer2");
+
 
 
   const timer = async () => {
     try {
-
+      
+      // console.log("Timeree",Timer1);
+      
       var currentDateTime = new Date();
       let resultInSeconds = currentDateTime.getTime() / 1000;
-      let topupInSeconds = new Date("Thu Sep 29 2022 08:10:52").getTime() / 1000;
+      let topupInSeconds = new Date(Timer1).getTime() / 1000;
       let Time_here = topupInSeconds - resultInSeconds
       let TimeFinal = parseInt(Time_here)
-      if (TimeFinal <= 0) {
+      if (TimeFinal <= 0 || Timer1 == "" || Timer1=="Stop 7 Day Timer" ) {
         setDays_here(0)
         setHours_here(0)
         setMunits_here(0)
@@ -219,16 +235,55 @@ const Dashboard = () => {
   }
 
 
+  
+  const timer2 = async () => {
+    try {
+     
+      // console.log("Timeree",res.Bonus7DayTimer);
+      
+      var currentDateTime = new Date();
+      let resultInSeconds = currentDateTime.getTime() / 1000;
+      let topupInSeconds = new Date(Timer2).getTime() / 1000;
+      let Time_here = topupInSeconds - resultInSeconds
+      let TimeFinal = parseInt(Time_here)
+      if (TimeFinal <= 0 || Timer2=="" ||   Timer2=="Stop 7 Day Timer" ) {
+        setDays_here2(0)
+        setHours_here2(0)
+        setMunits_here2(0)
+        setSeconds2(0)
+      } else {
+        let days = parseInt(TimeFinal / 86400)
+        setDays_here2(days)
+        TimeFinal = TimeFinal % (86400)
+        let hours = parseInt(TimeFinal / 3600)
+        setHours_here2(hours)
+        TimeFinal %= 3600
+        let munites = parseInt(TimeFinal / 60)
+        setMunits_here2(munites)
+        TimeFinal %= 60
+        let second_here = parseInt(TimeFinal)
+        setSeconds2(second_here)
+      }
+    } catch (e) {
+      console.log("Error While Timer", e);
+    }
+  }
 
   useEffect(() => {
-    DashboardAPI()
 
     setInterval(() => {
       timer()
+      timer2()
     }, 1000);
   }, [])
 
 
+
+  useEffect(() => {
+    DashboardAPI()
+
+  }, [])
+  
 
 
   let [joining, setjoining] = new useState({
@@ -766,7 +821,7 @@ setTimeout(() => {
                           <span className='fontsize'>  Time to Qualify</span>
                         </h6>
                         <h6>
-                          <p className='dash-h3 ' id="demo1" style={{ marginBottom: "0px" }}>{`${Days_here}d ${Hours_here}h ${Munits_here}m ${Seconds}s`}</p>
+                          <p className='dash-h3 ' id="demo1" style={{ marginBottom: "0px" }}>{`${Days_here2}d ${Hours_here2}h ${Munits_here2}m ${Seconds2}s`}</p>
 
                           <span className='fontsize'>   Time to Earn QSB</span>
                         </h6>
@@ -797,10 +852,7 @@ setTimeout(() => {
                             <button type="button" class="copy_btn_set3" >
                               <span className="fontdata">Copy</span>
                             </button>
-                            <div className='main_class_copy'>
-
-
-                            </div>
+                           
                           </div>
                         </CopyToClipboard>
 
@@ -829,15 +881,12 @@ setTimeout(() => {
                         <div class="wdg-actions copy_btn_set2">
                           <CopyToClipboard text={`https://nftxpress.club/Register_main?referrallink=${user}&position=Right`}
                             onCopy={() => setcopyTest(true)}  >
-                            <div class="wdg-actions copy_btn_set2">
-                              <button type="button" class="copy_btn_set3" >
-                                <span className='fontdata'>Copy</span>
-                              </button>
-                              <div className='main_class_copy'>
-
+                           <div class="wdg-actions ">
+                            <button type="button" class="copy_btn_set3" >
+                              <span className="fontdata">Copy</span>
+                            </button>
                            
-                              </div>
-                            </div>
+                          </div>
                           </CopyToClipboard>
 
 
@@ -1102,7 +1151,7 @@ setTimeout(() => {
                 </div>
                 <div class="text_color dash-h3" style={{ fontSize: "medium" }}>
                   {/* You have earned a total {EarnAmount} USD out of {tt} USD (Your earned {MaxIncome}% out of 400% of your investment ) */}
-                  You have earned a total $ {EarnAmount}  out of $ {tt}  (0% out of your total {MaxIncome}% of your investment)
+                  You have earned a total $ {EarnAmount}  out of $ {tt}  ({MaxIncome}% out of your total 400% of your investment)
 
                 </div>
 

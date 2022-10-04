@@ -33,7 +33,8 @@ const My_Referral = () => {
                 "tdate": todateFilter
             })
             responce = responce?.data?.data?.recordset;
-            setreferralApi([])
+            console.log("responce",responce);
+            // setreferralApi([])
 
             responce.forEach((item, index) => {
                 arr.push({
@@ -64,6 +65,10 @@ const My_Referral = () => {
         referral_API()
     }, [positionfilter, StatusFilter])
 
+    // useEffect(() => {
+    //     referral_API()
+    // }, [])
+    
 
     const indexOfLastPost = currentPage * listPerpage;
     const indexOfFirstPage = indexOfLastPost - listPerpage;

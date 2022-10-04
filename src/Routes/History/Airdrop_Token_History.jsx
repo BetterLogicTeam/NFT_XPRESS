@@ -95,7 +95,7 @@ const Airdrop_Token_History = () => {
             <div className="col-md-11 py-3">
                 <PagePath data={{page_name:"Airdrop Token Withdrawal History",page_path:" Withdrawal / Airdrop Token Withdrawal History"}} />
                 <Table
-                    data={withdrawal_history.rows}
+                    data={currentPost}
                     columns={withdrawal_history.cols}
                 />
                                <Table_Buttons indexOfFirstPage={indexOfFirstPage} indexOfLastPost={indexOfLastPost} setcurrentPage={setcurrentPage} currentPage={currentPage} totalData={referralApi.length} listPerpage={listPerpage} />

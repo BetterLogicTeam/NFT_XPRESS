@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { FaWallet } from "react-icons/fa";
 import { AiOutlineMenu } from   "react-icons/ai";
 import "./Header.css";
+import './meanmenu.min.css'
 
 function CollapsibleExample() {
   return (

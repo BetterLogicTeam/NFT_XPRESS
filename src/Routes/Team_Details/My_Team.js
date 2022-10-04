@@ -38,7 +38,7 @@ const My_Team = () => {
                 "fdate": fromdatefilter,
                 "tdate": todateFilter
             })
-            console.log("My_Team",responceRight);
+            console.log("My_Team",responceRight?.data?.data?.recordset);
             responceRight = responceRight?.data?.data?.recordset;
             setleftreferralApi([])
    
@@ -66,12 +66,14 @@ const My_Team = () => {
         }
     }
 
-
     useEffect(() => {
         referral_API()
     }, [positionfilter, StatusFilter])
 
-
+    // useEffect(() => {
+    //     referral_API()
+    // }, [])
+    
     const indexOfLastPost = currentPage * listPerpage;
     const indexOfFirstPage = indexOfLastPost - listPerpage;
     const indexOfLastPost2 = currentPage2 * listPerpage2;
@@ -103,7 +105,7 @@ const My_Team = () => {
                         <label style={{ color: 'rgb(0 0 0 / 85%)' }}>Choose Status</label>
 
                         <select class="floating-input form-control select_bg select_contol " data-val="true" data-val-required="Position is required" onChange={(e) => setStatusFilter(e.target.value)}>
-                            <option value="" selected>Select Status</option>
+                            <option  selected>Select Status</option>
                             <option value="2">All</option>
                             <option value="1">Active</option>
                             <option value="0">In-Active</option>

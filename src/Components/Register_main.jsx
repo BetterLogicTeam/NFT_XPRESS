@@ -486,7 +486,7 @@ function Register_main() {
 
                                             </p>
                                             <p class="mt-3" className='Styelnone text-white'>
-                                                Go to  <Link to="/" className='text-white'>Home</Link>
+                                                Go to <a href='/'  className='text-white'>Home</a>
                                                 
                                             </p>
 

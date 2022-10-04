@@ -84,7 +84,7 @@ export default function Forgat_Password() {
                                         <div class="col-lg-6">
                                             <h2 class="mb-2">Recover Password</h2>
                                             {/* <button className='btn' onClick={() => ethereum()}>Connect</button> */}
-                                            <p className='Styelnone'>Don’t have an account yet? <Link to='/Register_main'>Sign up</Link> </p>
+                                            <p className='Styelnone'>Don’t have an account yet? <Link to='/Register_main'  className='text-white'>Sign up</Link> </p>
                                             <form class="login-signup-form form-signin mt-5" onSubmit={handleSubmit(onSubmitHandler)}>
                                                 <div class="row">
                                                     <div id="error-msg"></div>

@@ -13,7 +13,7 @@ function About() {
                             <div class="about-right-side">
                                 <div class="dreamit-section-title pb-20 ">
                                     <div class="dreamit-section-main-title">
-                                        <h1 className='about-head-1'>What is NFT-Xpress?</h1>
+                                        <h1 className='about-head-1 me-1'>What is NFT-Xpress?</h1>
                                     </div>
                                     <div class="dreamit-section-content-text" style={{ color: '#fff', fontSize: '15px' }}>
                                         <p className='about-para'>
@@ -67,10 +67,10 @@ function About() {
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="dreamit-section-title-two text-center pb-20">
-                                <div class="dreamit-section-main-title">
-                                    {/* <!-- <h1>Our Product <img src="assets/images/larace_logo.png" /></h1> --> */}
-                                    <h1 class="larace">Our Product -  <img src="assets/images/larace_logo.png" /></h1>
-                                </div>
+                               
+                                <div class="dreamit-section-main-title ">
+                                        <h1 className='  ourproduct '>Our Product</h1>
+                                    </div>
                                 <div class="dreamit-section-content-text-inner">
                                     <p class="laracedata">LaRace is set to take the Play2Earn industry to new heights with their customisable range of NFT horses. With the launch imminent excitement has been building within the community. The NFT horses are not just a piece of digital art, they can also engage within the LaRace platform where there are numerous methods of earning financial gains from. Listed below are the main categories with earning potential.</p>
                                 </div>

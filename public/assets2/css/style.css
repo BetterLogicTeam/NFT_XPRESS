@@ -624,7 +624,7 @@ video {
     height: 200vh;
     width: 245%;
     z-index: 1;
-    top: -107px;
+    /* top: -107px; */
     left: 0;
 }
 .slider-area.style-five .slider-content h4 {

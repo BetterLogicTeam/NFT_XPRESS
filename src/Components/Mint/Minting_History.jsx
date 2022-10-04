@@ -27,8 +27,10 @@ const Minting_History = () => {
 
                 arr.push({
                     sr: index + 1,
-                    uid: item?.uid,
-                    income: item?.income,
+                    // uid: item?.uid,
+                    Package_Amount: item?.planamount,
+                    // Remark: item?.income ,
+                    Txn: <><a href={`https://bscscan.com/tx/${item?.traxn}`} target="_blank"  className='text-white'>View Txn</a></>,
                     date:  moment(item?.edate).format("DD/MM/YYYY h:m:s A")
                 });
 
@@ -36,7 +38,7 @@ const Minting_History = () => {
 
             }
             )
-            console.log("responce", arr);
+            // console.log("responce", arr);
 
 
             setreferralApi(arr)
@@ -61,23 +63,11 @@ const Minting_History = () => {
     const currentPost=referralApi.slice(indexOfFirstPage,indexOfLastPost)
 
 
-
-    
-
-
-    
-
-
-
-
-
-
-
     var [reward_income,set_reward_income]= new useState({
         cols:[
                 {Header: 'S.Number',accessor:'sr'},
                 {Header:'Package Amount',accessor:'Package_Amount'},
-                {Header:'Remark',accessor:'Remark'},
+                // {Header:'Remark',accessor:'Remark'},
                 {Header:'Txn',accessor:'Txn'},
                 // {Header:'Income($)',accessor:'income'},
                 {Header:'Date & Time',accessor:'date'}],
@@ -91,7 +81,7 @@ const Minting_History = () => {
             <div className="col-md-11 py-3">
                 <PagePath data={{page_name:"Minting History",page_path:"Mint / Minting History"}} />
                 <Table
-                    data={reward_income.rows}
+                    data={currentPost}
                     columns={reward_income.cols}
                 />
                 {/* <Table_Buttons indexOfFirstPage={indexOfFirstPage} indexOfLastPost={indexOfLastPost}  setcurrentPage={setcurrentPage} currentPage={currentPage} totalData={referralApi.length} listPerpage={listPerpage} /> */}
