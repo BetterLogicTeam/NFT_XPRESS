@@ -67,7 +67,7 @@ function App() {
           <Route path="Contact_main" element={<Contact_main />} />
           <Route path="Login_main" element={<Login_main />} />
           <Route path="Register_main" element={<Register_main />} />
-          <Route path="wellComePage/:email" element={<WellComePage  />} />
+          <Route path="welComePage/:email" element={<WellComePage  />} />
           <Route path="Wallet_Address_change" element={<Wallet_Address_change  />} />
           <Route path='Forgat_Password' element={<Forgat_Password />} />
           <Route path='Forget_Password_Result' element={<Get_Password_result />} />

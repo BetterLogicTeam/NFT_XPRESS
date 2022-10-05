@@ -44,7 +44,7 @@ export default function OTP() {
         console.log("Data", res.data.success);
         if (res.data.success == true) {
             toast.success(`${res.data.data.result}`)
-            history(`/wellComePage/${reg_uid}`)
+            history(`/welComePage/${reg_uid}`)
 
         } else {
             toast.error(`${res.data.data.result}`)

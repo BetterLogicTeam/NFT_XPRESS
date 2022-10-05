@@ -33,9 +33,11 @@ function How_to_play() {
                 </div> */}
                         <div class="col-lg-3  mt-4">
                             <div class="single-contact-icon-box d-flex align-items-center">
-                                <div class="contact-icon">
-                                    <i class="fab fa-facebook-f"></i>
-                                </div>
+                                <a href="https://www.facebook.com/LaRace-107715822115256" target="_blank">
+                                    <div class="contact-icon">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                </a>
                                 <div class="contact-content-text">
                                     <p>Join Us on Facebook</p>
 
