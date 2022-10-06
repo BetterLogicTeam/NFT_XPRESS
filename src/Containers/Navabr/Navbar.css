@@ -197,6 +197,13 @@
     margin-left: 89%;
 
 }
+.copydata{
+    display: flex;
+    font-size: 1.8rem !important;
+    /* flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important; */
+}
 
 
 }
@@ -204,4 +211,10 @@
 .col-10 {
     flex: 0 0 auto;
     width: 92.333333% !important;
+}
+
+.copydata{
+    display: flex;
+    font-size: 1.5rem  ;
+    /* justify-content: ; */
 }

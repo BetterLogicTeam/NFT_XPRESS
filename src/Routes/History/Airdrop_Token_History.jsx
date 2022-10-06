@@ -93,7 +93,7 @@ const Airdrop_Token_History = () => {
     return ( 
         <div className="row justify-content-center" style={{height:'70vh'}}>
             <div className="col-md-11 py-3">
-                <PagePath data={{page_name:"Airdrop Token Withdrawal History",page_path:" Withdrawal / Airdrop Token Withdrawal History"}} />
+                <PagePath data={{page_name:"LAG Token Withdrawal History",page_path:" Withdrawal / LAG Token Withdrawal History"}} />
                 <Table
                     data={currentPost}
                     columns={withdrawal_history.cols}

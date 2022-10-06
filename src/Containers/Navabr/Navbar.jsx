@@ -245,7 +245,7 @@ const Navbar = () => {
 
 
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/Matching_Income"><BsArrowRightShort /> Matching Income</Link> */}
-                                            <Link onClick={onClick_DNone} to="/dashboard/Roi_Income"><BsArrowRightShort /> Airdrop Token</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/LAG"><BsArrowRightShort /> LAG Token</Link>
                                             {/* <Link onClick={onClick_DNone} to="/dashboard/withdrawal_Income"><BsArrowRightShort /> Reward Income</Link> */}
                                         </div>
                                     </div>
@@ -257,8 +257,8 @@ const Navbar = () => {
                                             {/* <Link  onClick={onClick_DNone} to="/dashboard/Buy_NFT"><BsArrowRightShort /> Buy NFT</Link>  */}
                                             <Link onClick={onClick_DNone} to="/dashboard/Withdrawal"><BsArrowRightShort /> Main Wallet </Link>
                                             <Link onClick={onClick_DNone} to="/dashboard/Withdrawal_History"><BsArrowRightShort /> Main Wallet History</Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Airdrop_Token"><BsArrowRightShort />Airdrop Token</Link>
-                                            <Link onClick={onClick_DNone} to="/dashboard/Airdrop_Token_History"><BsArrowRightShort />Airdrop Token History</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/LAG_Token"><BsArrowRightShort />LAG Token</Link>
+                                            <Link onClick={onClick_DNone} to="/dashboard/LAG_Token_History"><BsArrowRightShort />LAG Token History</Link>
 
 
 
@@ -367,8 +367,8 @@ const Navbar = () => {
 
                                         <Link onClick={sm_nav_dnone} className="fs-1" to="/dashboard/Withdrawal"><BsArrowRightShort /> Main Wallet </Link>
                                         <Link onClick={sm_nav_dnone} className="fs-1" to="/dashboard/Withdrawal_History"><BsArrowRightShort /> Main Wallet History</Link>
-                                        <Link onClick={sm_nav_dnone} className="fs-1" to="/dashboard/Airdrop_Token"><BsArrowRightShort />Airdrop Token</Link>
-                                        <Link onClick={sm_nav_dnone} className="fs-1" to="/dashboard/Airdrop_Token_History"><BsArrowRightShort />Airdrop Token History</Link>
+                                        <Link onClick={sm_nav_dnone} className="fs-1" to="/dashboard/LAG_Token"><BsArrowRightShort />LAG Token</Link>
+                                        <Link onClick={sm_nav_dnone} className="fs-1" to="/dashboard/LAG_Token_History"><BsArrowRightShort />LAG Token History</Link>
                                     </div>
                                 </div>
                             </li>
@@ -421,7 +421,7 @@ const Navbar = () => {
                 <Route path='/dashboard/Referral_Income' element={<Referral_Income />} />
                 <Route path='/dashboard/Matching_Income' element={<Matching_Income />} />
                 <Route path='/dashboard/withdrawal_Income' element={<Reward_Income />} />
-                <Route path='/dashboard/Roi_Income' element={<Roi_Income />} />
+                <Route path='/dashboard/LAG' element={<Roi_Income />} />
                 <Route path='/dashboard/Matching_Level_Income' element={<Matching_Level_Income />} />
                 <Route path='/dashboard/Buy_NFT' element={<Buy_NFT />} />
                 <Route path='/dashboard/Withdrawal_History' element={<Withdrawal_History />} />
@@ -447,8 +447,8 @@ const Navbar = () => {
                 <Route path='/dashboard/Team_Bonus' element={<Team_Bonus />} />
                 <Route path='/dashboard/Sports_Bonus' element={<Sports_Bonus />} />
                 <Route path='/dashboard/Withdrawal_Share_Bonus' element={<Withdrawal_Share_Bonus />} />
-                <Route path='/dashboard/Airdrop_Token' element={<Airdrop_Token />} />
-                <Route path='/dashboard/Airdrop_Token_History' element={<Airdrop_Token_History />} />
+                <Route path='/dashboard/LAG_Token' element={<Airdrop_Token />} />
+                <Route path='/dashboard/LAG_Token_History' element={<Airdrop_Token_History />} />
                 <Route path='/dashboard/Governance_Token_Address' element={<Governance_Token_Address />} />
                  <Route path='/dashboard/Mint_nft' element={<Mint_nft  />} />
                 <Route path='/dashboard/Collection' element={<Collection  />} />

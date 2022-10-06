@@ -317,7 +317,7 @@ function Register_main() {
                                                         // value={values.password}
                                                         
                                                         onChange={handleChange('password')}
-                                                        placeholder="Confirm Passwordiggh" {...register("cpsw", { required: true })}
+                                                        placeholder="Confirm Password" {...register("cpsw", { required: true })}
                                                         endAdornment={
                                                             <InputAdornment position="end">
                                                                 <IconButton
@@ -340,7 +340,7 @@ function Register_main() {
                                                 <div class="col-lg-12">
                                                     <div class="custom-control custom-checkbox mb-3">
                                                         <input class="" type="checkbox" value="true" checked={checkbox} onChange={(e) => setcheckbox(e.target.checked)} /><input name="TermsAndConditions" type="hidden" value="false" />
-                                                        <label class="" for="customCheck1" className='Styelnone'> I Agree Your <a href="#">Terms and Conditions</a></label>
+                                                        <label class="" for="customCheck1" className='Styelnone'> I Agree Your <a href="#" className='text-white'>Terms and Conditions</a></label>
                                                     </div>
                                                 </div>
                                                     

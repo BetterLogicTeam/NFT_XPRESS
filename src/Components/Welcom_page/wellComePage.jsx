@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Welcom_style.css'
 import { API } from '../../Redux/actions/API'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -127,7 +127,12 @@ export default function WellComePage() {
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><a href="https://nftxpress.club/Login_main" target="_blank" style={{ padding: "5px 12px", fontSize: "18px", borderRadius: "5px", fontWeight: "bold", backgroundColor: "#fff", textDecoration: "none" }}>Login</a></td>
+                                                <td>
+                                                    <Link to='/Login_main'>
+                                                    <a  target="_blank" style={{ padding: "5px 12px", fontSize: "18px", borderRadius: "5px", fontWeight: "bold", backgroundColor: "#fff", textDecoration: "none" }}>Login</a>
+                                                    </Link>
+                                                    
+                                                    </td>
                                             </tr>
 
                                         </table>

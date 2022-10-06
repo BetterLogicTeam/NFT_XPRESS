@@ -28,7 +28,7 @@ const Roi_Income = () => {
                     sr: index + 1,
                     id: `${item?.user_id} `,
                     token: `$ ${item?.packageamount} `,
-                    income_usd: `$ ${item?.am}`,
+                    income_usd: `${item?.am}`,
                     date: `${item.dd}`
 
                 });
@@ -66,7 +66,7 @@ const Roi_Income = () => {
             { Header: 'S.Number', accessor: 'sr' },
             { Header: 'ID', accessor: 'id' },
             { Header: 'Package', accessor: 'token' },
-            { Header: 'Income', accessor: 'income_usd' },
+            { Header: 'LAG Token', accessor: 'income_usd' },
             { Header: 'Date & Time', accessor: 'date' }],
         rows: [
             { sr: '1', id: '101495', token: '338.846169456626', income_usd: '12345 $', date: '20/07/2022' },
@@ -78,7 +78,7 @@ const Roi_Income = () => {
     return (
         <div className="row justify-content-center" style={{ height: '70vh' }}>
             <div className="col-md-11 py-3">
-                <PagePath data={{ page_name: "Airdrop Token", page_path: "All Income / Airdrop Token" }} />
+                <PagePath data={{ page_name: "LAG Token", page_path: "All Income / LAG Token" }} />
                 <Table
                     data={[...currentPost]}
                     columns={roi_income.cols}

@@ -103,7 +103,7 @@ function App() {
             <Route path='/dashboard/Referral_Income' element={<Referral_Income />} />
                 <Route path='/dashboard/Matching_Income' element={<Matching_Income />} />
                 <Route path='/dashboard/withdrawal_Income' element={<Reward_Income />} />
-                <Route path='/dashboard/Roi_Income' element={<Roi_Income />} />
+                <Route path='/dashboard/LAG' element={<Roi_Income />} />
                 <Route path='/dashboard/Matching_Level_Income' element={<Matching_Level_Income />} />
                 <Route path='/dashboard/Buy_NFT' element={<Buy_NFT />} />
                 <Route path='/dashboard/Withdrawal_History' element={<Withdrawal_History />} />
@@ -112,8 +112,8 @@ function App() {
                 <Route path='/dashboard/Team_Bonus' element={<Team_Bonus />} />
                 <Route path='/dashboard/Sports_Bonus' element={<Sports_Bonus />} />
                 <Route path='/dashboard/Withdrawal_Share_Bonus' element={<Withdrawal_Share_Bonus />} />
-                <Route path='/dashboard/Airdrop_Token' element={<Airdrop_Token />} />
-                <Route path='/dashboard/Airdrop_Token_History' element={<Airdrop_Token_History />} />
+                <Route path='/dashboard/LAG_Token' element={<Airdrop_Token />} />
+                <Route path='/dashboard/LAG_Token_History' element={<Airdrop_Token_History />} />
 
 
 

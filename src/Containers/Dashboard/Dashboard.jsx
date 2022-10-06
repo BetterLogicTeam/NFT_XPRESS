@@ -125,7 +125,7 @@ const Dashboard = () => {
       setleftbusiness(res.leftbusiness)
       setLeftDirect(res.LeftDirect)
       setBonus30DayTimer(res.Bonus30DayTimer)
-     
+
       setTeamBonus(res.TeamBonus)
 
       setRightActiveDownline(res.RightActiveDownline)
@@ -203,15 +203,15 @@ const Dashboard = () => {
 
   const timer = async () => {
     try {
-      
+
       // console.log("Timeree",Timer1);
-      
+
       var currentDateTime = new Date();
       let resultInSeconds = currentDateTime.getTime() / 1000;
       let topupInSeconds = new Date(Timer1).getTime() / 1000;
       let Time_here = topupInSeconds - resultInSeconds
       let TimeFinal = parseInt(Time_here)
-      if (TimeFinal <= 0 || Timer1 == "" || Timer1=="Stop 7 Day Timer" ) {
+      if (TimeFinal <= 0 || Timer1 == "" || Timer1 == "Stop 7 Day Timer") {
         setDays_here(0)
         setHours_here(0)
         setMunits_here(0)
@@ -235,18 +235,18 @@ const Dashboard = () => {
   }
 
 
-  
+
   const timer2 = async () => {
     try {
-     
+
       // console.log("Timeree",res.Bonus7DayTimer);
-      
+
       var currentDateTime = new Date();
       let resultInSeconds = currentDateTime.getTime() / 1000;
       let topupInSeconds = new Date(Timer2).getTime() / 1000;
       let Time_here = topupInSeconds - resultInSeconds
       let TimeFinal = parseInt(Time_here)
-      if (TimeFinal <= 0 || Timer2=="" ||   Timer2=="Stop 7 Day Timer" ) {
+      if (TimeFinal <= 0 || Timer2 == "" || Timer2 == "Stop 7 Day Timer") {
         setDays_here2(0)
         setHours_here2(0)
         setMunits_here2(0)
@@ -283,7 +283,7 @@ const Dashboard = () => {
     DashboardAPI()
 
   }, [])
-  
+
 
 
   let [joining, setjoining] = new useState({
@@ -627,18 +627,14 @@ const Dashboard = () => {
       labels: ['300%'],
     },
   });
-  
+
   useEffect(() => {
-    copyTest ? toast.success("Copied") :<></>
-  
-     
-    
-                       
-setTimeout(() => {
-  setcopyTest(false)
-}, 10);
+    copyTest ? toast.success("Copied") : <></>
+    setTimeout(() => {
+      setcopyTest(false)
+    }, 10);
   }, [copyTest])
-  
+
 
 
 
@@ -689,7 +685,7 @@ setTimeout(() => {
                   </div>
                   <div class="card radius-10">
                     <div class="card-body card1">
-                      <p>Airdrop Game Token</p>
+                      <p>LAG Token</p>
                       <div class="Left_Right">
                         <h6 className='dash-h3'>
                           {TotalAirdropToken}<br />
@@ -852,11 +848,11 @@ setTimeout(() => {
                             <button type="button" class="copy_btn_set3" >
                               <span className="fontdata">Copy</span>
                             </button>
-                           
+
                           </div>
                         </CopyToClipboard>
 
-                        </div>
+                      </div>
 
                     </div>
                     <div class="progress-wrapper">
@@ -881,12 +877,12 @@ setTimeout(() => {
                         <div class="wdg-actions copy_btn_set2">
                           <CopyToClipboard text={`https://nftxpress.club/Register_main?referrallink=${user}&position=Right`}
                             onCopy={() => setcopyTest(true)}  >
-                           <div class="wdg-actions ">
-                            <button type="button" class="copy_btn_set3" >
-                              <span className="fontdata">Copy</span>
-                            </button>
-                           
-                          </div>
+                            <div class="wdg-actions ">
+                              <button type="button" class="copy_btn_set3" >
+                                <span className="fontdata">Copy</span>
+                              </button>
+
+                            </div>
                           </CopyToClipboard>
 
 
@@ -1017,7 +1013,7 @@ setTimeout(() => {
                   <div class="mt-1 mb_1">
                     <div class="income_name">
                       {/* Withdrawal Income */}
-                      <h4 id='income-h4'>Airdrop Token</h4>
+                      <h4 id='income-h4'>LAG Token</h4>
 
                       <h4 id='income-h4'>{`$ ${roiIncome}`}</h4>
                     </div>
@@ -1143,10 +1139,10 @@ setTimeout(() => {
               <div class="col-md-12">
 
                 <div class="prgs">
-                  <img src="assets3/images/horse_green.png" id="dynamicwidth" style={{ marginLeft: ((EarnAmount / 1500) * 500).toFixed(0) + "%" }} />
+                  <img src="assets3/images/horse_green.png" id="dynamicwidth" style={{ marginLeft: ((MaxIncome / 400) * 100).toFixed(0) + "%" }} />
 
                   <div id="myProgress">
-                    <div className='dash-h3' id="myBar" style={{ width: ((EarnAmount / 1500) * 500).toFixed(0) + "%", backgroundColor: "green" }}></div>
+                    <div className='dash-h3' id="myBar" style={{ width: ((MaxIncome / 400) * 100).toFixed(0) + "%", backgroundColor: "green" }}></div>
                   </div>
                 </div>
                 <div class="text_color dash-h3" style={{ fontSize: "medium" }}>

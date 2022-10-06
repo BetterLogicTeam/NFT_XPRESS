@@ -4654,7 +4654,7 @@ border: none;
 .copy_btn_set2{
 
     text-decoration: none;
-    color: #fff;
+    color: #5138ee;
     padding: 0px 10px;
     line-height: 40px;
     border-radius: 8px;
@@ -4662,7 +4662,7 @@ border: none;
     -webkit-transform-origin: right;
     transform-origin: right;
     transition: all .3s ease;
-    background: #5138ee;
+    /* background: #5138ee; */
     font-weight: 700;
     }
 .wdg-input-box{
