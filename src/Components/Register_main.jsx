@@ -20,8 +20,8 @@ function Register_main() {
     const [checkbox, setcheckbox] = useState(false)
     const [userId, setuserId] = useState(null)
     const [spinnerload, setspinnerload] = useState(false)
-    const [checkreffarl, setcheckreffarl] = useState(false)
     const [positionSid, setposition] = useState(null);
+    const [checkreffarl, setcheckreffarl] = useState(false)
     const [RefID, setRefID] = useState(null)
     const [values, setValues] = React.useState({
         password: '',

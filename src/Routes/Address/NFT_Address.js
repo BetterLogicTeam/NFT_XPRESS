@@ -20,10 +20,10 @@ const Coin_Address = () => {
             <div className="col-md-11 py-3">
                 <PagePath data={{ page_name: "NFT Address", page_path: "Address / NFT Address" }} />
                 <h5 className=" mt-5  copydata" style={{ color: 'rgb(0 0 0 / 85%)' }}>NFT Address : 
-                {(<a href={`https://bscscan.com/address/0xa8B29c8dB66E7641213DDE45092c32E7D3f58c58`} className="  copydata" target="_blank">{"0xa8B29c8dB66E7641213DDE45092c32E7D3f58c58" || "Connect Wallet"}</a>)}
+                {(<a href={`https://bscscan.com/address/0x9c745c6df1de64a022800f4a675c62e3799b3adb`} className="  copydata" target="_blank">{"0x9c745c6df1de64a022800f4a675c62e3799b3adb" || "Connect Wallet"}</a>)}
 
                     <div class="wdg-actions  ms-4 ">
-                        <CopyToClipboard text={`https://bscscan.com/address/0xa8B29c8dB66E7641213DDE45092c32E7D3f58c58`}
+                        <CopyToClipboard text={`https://bscscan.com/address/0x9c745c6df1de64a022800f4a675c62e3799b3adb`}
                             onCopy={() => setcopyTest(true)}
                         >
                             <div class="wdg-actions ">

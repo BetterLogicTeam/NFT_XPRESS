@@ -41,8 +41,8 @@ export default function OTP() {
                 "otp": data.otp
             }
         )
-        console.log("Data", res.data.success);
-        if (res.data.success == true) {
+        console.log("Data", res);
+        if (res.data.data.result == "Verified") {
             toast.success(`${res.data.data.result}`)
             history(`/welComePage/${reg_uid}`)
 

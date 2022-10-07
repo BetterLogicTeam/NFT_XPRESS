@@ -84,13 +84,22 @@ export default function Change_Password() {
             let res = await API.post('/verify_email_changepass',
             {
                 "uid":user
+            } )
+            
+            if(res.data.data.result=="Correct Email ID !!"){
+                toast.success('Email with Varify code has been send to you Successfull')
+                setotpcheck(true)
+                setspinnerload(false)
+
+
+            }else{
+                toast.error(`${res.data.data.result}`);
+                setspinnerload(false)
+
             }
 
-        )
-        toast.success('Email with Varify code has been send to you Successfull')
-        setotpcheck(true)
 
-            setspinnerload(false)
+
             // history(`/dashboard/Varify_email_change_password/${emailchek}/${data.password}`)
 
         } else {

@@ -42,7 +42,7 @@ export default function Forgat_Password() {
 
         )
         // res = res.data.data[0][0]
-        console.log("Response", res.data);
+        console.log("Response", res.data.data.result);
 
 
         if (res == undefined) {
@@ -51,16 +51,20 @@ export default function Forgat_Password() {
             setspinnerload(false)
 
 
-        } else {
-        toast.success('Email with User Id and Password has been send to you Successfull')
-
+            } else if(res.data.data.result=="Correct Email ID !!") {
+            toast.success('Email with User Id and Password has been send to you Successfull')
             history(`/Login_main`)
 
-            setformError(res.email)
-            setisSubmit(res.password)
-            setcheckbox(res.uid)
 
-            setspinnerload(false)
+                setformError(res.email)
+                setisSubmit(res.password)
+                setcheckbox(res.uid)
+
+                setspinnerload(false)
+            }else{
+                toast.error(`${res.data.data.result}`);
+                history(`/Login_main`)
+
         }
 
 
