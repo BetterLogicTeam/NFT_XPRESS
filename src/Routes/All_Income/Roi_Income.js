@@ -68,7 +68,7 @@ const Roi_Income = () => {
             { Header: 'ID', accessor: 'id' },
             { Header: 'Package', accessor: 'token' },
             { Header: 'Total LAG Token', accessor: 'income_usd' },
-            { Header: 'Received LEG Token', accessor: 'net_Token' },
+            { Header: 'Received LAG Token', accessor: 'net_Token' },
 
             { Header: 'Date & Time', accessor: 'date' }],
         rows: [
