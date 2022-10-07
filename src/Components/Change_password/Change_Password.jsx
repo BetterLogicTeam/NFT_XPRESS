@@ -87,7 +87,7 @@ export default function Change_Password() {
             } )
             
             if(res.data.data.result=="Correct Email ID !!"){
-                toast.success('Email with Varify code has been send to you Successfull')
+                toast.success('Email with Varify code has been sent to you Successfully')
                 setotpcheck(true)
                 setspinnerload(false)
 

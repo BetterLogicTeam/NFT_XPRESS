@@ -22,7 +22,7 @@ const Coin_Address = () => {
                 <h5 className=" mt-5  copydata" style={{ color: 'rgb(0 0 0 / 85%)' }}>In Game Reward Token Address :
                     {(<a href={`https://bscscan.com/address/0x3a49e91e69e18d886f33155c4de23dd3819626e9`} className="  copydata" target="_blank">{"0x3a49e91e69e18d886f33155c4de23dd3819626e9" || "Connect Wallet"}</a>)}
                     <div class="wdg-actions  ms-4 ">
-                        <CopyToClipboard text={`https://bscscan.com/address/0x3a49e91e69e18d886f33155c4de23dd3819626e9`}
+                        <CopyToClipboard text="0x3a49e91e69e18d886f33155c4de23dd3819626e9"
                         onCopy={() => setcopyTest(true)}
                         >
                             <div class="wdg-actions ">

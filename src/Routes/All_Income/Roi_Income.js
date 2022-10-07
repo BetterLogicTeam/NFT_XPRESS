@@ -26,10 +26,11 @@ const Roi_Income = () => {
 
                 arr.push({
                     sr: index + 1,
-                    id: `${item?.user_id} `,
+                    id: `${item?.uid} `,
                     token: `$ ${item?.packageamount} `,
-                    income_usd: `${item?.am}`,
-                    date: `${item.dd}`
+                    income_usd: `${item?.token}`,
+                    date: `${item.dd}`,
+                    net_Token:item.amounttoken
 
                 });
 
@@ -66,7 +67,9 @@ const Roi_Income = () => {
             { Header: 'S.Number', accessor: 'sr' },
             { Header: 'ID', accessor: 'id' },
             { Header: 'Package', accessor: 'token' },
-            { Header: 'LAG Token', accessor: 'income_usd' },
+            { Header: 'Total LAG Token', accessor: 'income_usd' },
+            { Header: 'Received LEG Token', accessor: 'net_Token' },
+
             { Header: 'Date & Time', accessor: 'date' }],
         rows: [
             { sr: '1', id: '101495', token: '338.846169456626', income_usd: '12345 $', date: '20/07/2022' },

@@ -85,7 +85,7 @@ const Profile = () => {
                     "uid": user
                 }
             )
-            toast.success('Email with Varify code has been send to you Successfull')
+            toast.success('Email with Varify code has been sent to you Successfully')
             setspinnerload(false)
         } else if (showemail == "") {
             console.log("showemail", emailAddress);
@@ -99,7 +99,7 @@ const Profile = () => {
             )
 
             console.log("OTP_REs", res);
-            toast.success('Email with Varify code has been send to you Successfull')
+            toast.success('Email with Varify code has been sent to you Successfully')
             setspinnerload(false)
         }
         else {
@@ -111,7 +111,7 @@ const Profile = () => {
 
             if (res.data.data.result == "Correct Email ID !!") {
                 setotpcheck(true)
-                toast.success('Email with Varify code has been send to you Successfull')
+                toast.success('Email with Varify code has been sent to you Successfully')
                 setspinnerload(false)
 
             } else {

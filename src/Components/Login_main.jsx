@@ -166,7 +166,7 @@ function Login_main() {
 
                                         <div class="col-lg-6 rtl-left text-white">
                                             <Link to="/Forgat_Password">
-                                                <a class="text-white float-right ">Forgot Password?</a>
+                                                <a class="text-primary float-right "> <strong>Forgot Password?</strong> </a>
                                             </Link>
                                         </div>
 
@@ -178,10 +178,10 @@ function Login_main() {
 
                                 </form>
                                 <p class="mt-3" className='Styelnone text-white'>
-                                    Create an Account  <Link to="/Register_main"> <a class="text-white" >Sign Up</a></Link>
+                                    Create an Account  <Link to="/Register_main"> <a class="text-primary" > <strong>Sign Up</strong> </a></Link>
                                 </p>
                                 <p class="mt-3" className='Styelnone text-white'>
-                                    Go to  <a href='/ ' className='text-white'>Home</a>
+                                    Go to  <a href='/ ' className='text-primary'><strong>Home</strong></a>
 
                                 </p>
 

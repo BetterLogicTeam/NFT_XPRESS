@@ -23,7 +23,7 @@ export default function Governance_Token_Address() {
             {(<a href={`https://bscscan.com/address/0x052775cf897b3ec894f26b8d801c514123c305d1`} className="  copydata" target="_blank">{"0x052775cf897b3ec894f26b8d801c514123c305d1" || "Connect Wallet"}</a>)}
 
             <div class="wdg-actions ms-4 ">
-              <CopyToClipboard text={`https://bscscan.com/address/0x052775cf897b3ec894f26b8d801c514123c305d1`}
+              <CopyToClipboard text={`0x052775cf897b3ec894f26b8d801c514123c305d1`}
                 onCopy={() => setcopyTest(true)}
               >
                   <span className="fontdata">{<AiFillCopy className="aliIcon"/>}</span>

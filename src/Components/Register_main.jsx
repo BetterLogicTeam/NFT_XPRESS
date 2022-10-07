@@ -482,11 +482,11 @@ function Register_main() {
                                                     <span class="visually-hidden">Loading...</span>
                                                 </div></>) : "Sign up"}</button>
                                             <p class="mt-3" className='Styelnone text-white'>
-                                                Already have an Account <Link to="/Login_main" className='text-white'> Sign In</Link>
+                                                Already have an Account <Link to="/Login_main" className='text-primary'> <strong>Sign In</strong></Link>
 
                                             </p>
                                             <p class="mt-3" className='Styelnone text-white'>
-                                                Go to <a href='/'  className='text-white'>Home</a>
+                                                Go to <a href='/'  className='text-primary'><strong>Home</strong></a>
                                                 
                                             </p>
 

@@ -52,7 +52,7 @@ export default function Forgat_Password() {
 
 
             } else if(res.data.data.result=="Correct Email ID !!") {
-            toast.success('Email with User Id and Password has been send to you Successfull')
+            toast.success('Email with User Id and Password has been sent to you Successfully')
             history(`/Login_main`)
 
 

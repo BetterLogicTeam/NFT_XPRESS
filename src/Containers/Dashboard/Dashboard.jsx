@@ -99,6 +99,10 @@ const Dashboard = () => {
   const [yesterdaycto, setyesterdaycto] = useState(0);
   const [todaycto, settodaycto] = useState(0);
   const [tt, settt] = useState(0);
+  const [GlobalPosition, setGlobalPosition] = useState()
+
+
+
 
 
   // let earn=0
@@ -116,7 +120,7 @@ const Dashboard = () => {
       localStorage.setItem("Timer1", res.Bonus7DayTimer);
       localStorage.setItem("Timer2", res.Bonus30DayTimer);
 
-
+setGlobalPosition(res.GlobalPosition)
 
       setTopupDate(res.quickStarterBonusTime)
       setTotalAirdropToken(res.TotalAirdropToken)
@@ -1057,7 +1061,7 @@ const Dashboard = () => {
                     <h6 className='dash-h3'> Global Position</h6>
                     <div class="Left_Right">
                       <h6 className='dash-h3'>
-                        12345
+                        {GlobalPosition}
                       </h6>
 
                     </div>

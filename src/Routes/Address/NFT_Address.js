@@ -23,7 +23,7 @@ const Coin_Address = () => {
                 {(<a href={`https://bscscan.com/address/0x9c745c6df1de64a022800f4a675c62e3799b3adb`} className="  copydata" target="_blank">{"0x9c745c6df1de64a022800f4a675c62e3799b3adb" || "Connect Wallet"}</a>)}
 
                     <div class="wdg-actions  ms-4 ">
-                        <CopyToClipboard text={`https://bscscan.com/address/0x9c745c6df1de64a022800f4a675c62e3799b3adb`}
+                        <CopyToClipboard text={`0x9c745c6df1de64a022800f4a675c62e3799b3adb`}
                             onCopy={() => setcopyTest(true)}
                         >
                             <div class="wdg-actions ">
