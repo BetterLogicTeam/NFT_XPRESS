@@ -38,7 +38,7 @@ const Minting_History = () => {
 
             }
             )
-            // console.log("responce", arr);
+            console.log("responce", arr);
 
 
             setreferralApi(arr)

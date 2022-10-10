@@ -223,14 +223,16 @@ export default function Mint_nft() {
                                         totalMintingPriceToken_1 = web3.utils.fromWei((totalMintingPriceToken_1).toString())
                                         console.log("Ammount", acc);
                                         let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
-                                            "uid": user,
-                                            "sid": "0",
-                                            "transaction": hash,
-                                            "amount": contract_select,
-                                            "useraddress": acc,
-                                            "tokenamount":  "0",
+                                          
+                                            "uid":user,
+                                            "sid":"0",
+                                            "transaction":hash,
+                                            "amount":contract_select,
+                                            "useraddress":acc,
+                                            "tokenamount":"0",
+                                            "type":"Without Referral ID",
                                             "quantity":value,
-                                            "type": "Without Referral ID"
+                                            "horseType": minting_counter ==1? "SINGLE":"DUAL"
                                         })
                                         toast.success("Transaction Confirmed")
                                         console.log("postapi", postapi);
@@ -409,15 +411,15 @@ export default function Mint_nft() {
 
                                         // mintingbnbPrice=web3.utils.fromWei((mintingbnbPrice).toString())
                                         let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
-
-                                            "uid": user,
-                                            "sid": "0",
-                                            "transaction": hash,
-                                            "amount": contract_select,
-                                            "useraddress": acc,
-                                            "tokenamount":  "0",
+                                            "uid":user,
+                                            "sid":"0",
+                                            "transaction":hash,
+                                            "amount":contract_select,
+                                            "useraddress":acc,
+                                            "tokenamount":"0",
+                                            "type":"Without Referral ID",
                                             "quantity":value,
-                                            "type": "Without Referral ID"
+                                            "horseType": minting_counter ==1? "SINGLE":"DUAL"
                                            
                                         })
                                         toast.success("Transaction Confirmed")

@@ -13,6 +13,7 @@ import { ListItemSecondaryAction } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import './tree.css'
 import { Dna } from 'react-loader-spinner';
+import { toast } from "react-toastify";
 
 let mouseStatus = 'out';
 let mouseEnterNext = false;
@@ -24,11 +25,13 @@ const Matching_Tree = () => {
     const [arrValue, setArrValue] = useState([])
     const [getValue, setgetValue] = useState("")
     const [loader, setloader] = useState(false)
+    const [searchvalue, setsearchvalue] = useState(0)
+
 
 
 
     const [userdata, setuserdata] = useState(
-        [
+[
             {
                 name: '',
                 id: '',
@@ -273,280 +276,55 @@ const Matching_Tree = () => {
         ]
 
     )
+    
+    const handleChange = async () => {
+        setsearchvalue(getValue)
+        let array = []
+        let responce = await API?.post('/binary_tree', {
+            "uid": Idnumer,
+            "usersession_uid": "1"
+        })
+        responce = responce?.data?.data?.recordset;
+        console.log("userdata", getValue);
 
+        let array_length = responce.length;
+        for (let i = 0; i < array_length; i++) {
+            array = [...array, responce[i].uid]
+            console.log("aaray", i);
+            console.log("Arraya_data", array);
+           
+        }  
+        
+        
+        const found = array.find(element => element == getValue);
+        console.log("found", found);
 
-    const handleClick = event => {
-        event.preventDefault();
+        if(found==undefined){
+toast.error("User ID Not Found")
+        }else{
 
-        // 👇️ value of input field
-        console.log('handleClick 👉️', Idnumer);
+            setIdnumer(found)
+        }
+        
+
     };
 
 
-    const handleChange = event => {
-        setgetValue(event.target.value);
-
-        console.log('value is:', event.target.value);
-    };
 
     const referral_API = async () => {
         try {
 
             setloader(true)
 
-
+            // console.log("searchvalue", searchvalue);
 
             let responce = await API?.post('/binary_tree', {
                 "uid": Idnumer,
                 "usersession_uid": "1"
             })
             responce = responce?.data?.data?.recordset;
-            console.log("Res_API", responce);
+            console.log("Res_API", responce[0].uid);
 
-
-            setuserdata([
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '0',
-                    right_business: '',
-                    Sponsor: ''
-
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-                {
-                    name: '',
-                    id: '',
-                    registration_date: '',
-                    status: '',
-                    total_left: '',
-                    total_left_active: '',
-                    left_business: '',
-                    package_amount: '',
-                    Activation_date: '',
-                    package: '',
-                    total_right: '',
-                    total_right_active: '',
-                    right_business: '',
-                    Sponsor: ''
-                },
-            ])
             let arr = []
             responce.forEach((item, index) => {
 
@@ -586,80 +364,22 @@ const Matching_Tree = () => {
 
 
         } catch (e) {
-        setloader(false)
+            setloader(false)
             console.log("Error While calling Referrer API", e);
         }
     }
 
-    const onhover = (x) => {
-
-        let team_info_div_data = document.querySelectorAll('.team-info p')
-
-        let team_info_div = document.querySelector('.team-info');
-
-        let user_img = document.querySelectorAll('.user-img');
-        let Sponsor = document.querySelector('.Sponsor');
-        console.log("Data", userdata[x].Sponsor);
-        team_info_div_data[0].innerHTML = 'Registration Date : ';
-        team_info_div_data[1].innerHTML = 'Status : ';
-        team_info_div_data[2].innerHTML = 'Total Left : ';
-        team_info_div_data[3].innerHTML = 'Total Left Active : ';
-        team_info_div_data[4].innerHTML = 'Left Business : ';
-        team_info_div_data[5].innerHTML = 'Package Amount : ';
-        team_info_div_data[6].innerHTML = 'Activation Date : ';
-        team_info_div_data[7].innerHTML = 'Package : ';
-        team_info_div_data[8].innerHTML = 'Total Right : ';
-        // team_info_div_data[9].innerHTML = 'Total Right Active : ';
-        team_info_div_data[10].innerHTML = 'Right BusinNameess : ';
-        Sponsor.innerHTML = "Sponsor : ";
-        team_info_div_data[0].innerHTML += userdata[x].registration_date;
-        team_info_div_data[1].innerHTML += userdata[x].status;
-        team_info_div_data[2].innerHTML += userdata[x].total_left;
-        team_info_div_data[3].innerHTML += userdata[x].total_left_active;
-        team_info_div_data[4].innerHTML += userdata[x].left_business;
-        team_info_div_data[5].innerHTML += userdata[x].package_amount;
-        team_info_div_data[6].innerHTML += userdata[x].Activation_date;
-        team_info_div_data[7].innerHTML += userdata[x].package;
-        team_info_div_data[8].innerHTML += userdata[x].total_right;
-        team_info_div_data[9].innerHTML += userdata[x].total_right_active;
-        team_info_div_data[10].innerHTML += userdata[x].right_business;
-        Sponsor.innerHTML += userdata[x].Sponsor;
-
-        team_info_div.classList.remove('d-none');
-        team_info_div.setAttribute('style', `top:${user_img[x].getBoundingClientRect().top + 50}px; left:${(user_img[x].getBoundingClientRect().x + (user_img[x].getBoundingClientRect().width / 2)) - (team_info_div.getBoundingClientRect().width / 2)}px !important ;`);
-    }
-    const onhoverout = () => {
-        if (mouseStatus == 'out') {
-            let team_info_div_data = document.querySelectorAll('.team-info p')
-            let Sponsor = document.querySelector('.Sponsor');
-            let team_info_div = document.querySelector('.team-info');
 
 
-            team_info_div_data[0].innerHTML = 'Registration Date :';
-            team_info_div_data[1].innerHTML = 'Status :';
-            team_info_div_data[2].innerHTML = 'Total Left :';
-            team_info_div_data[3].innerHTML = 'Total Left Active :';
-            team_info_div_data[4].innerHTML = 'Left Business :';
-            team_info_div_data[5].innerHTML = 'Package Amount :';
-            team_info_div_data[6].innerHTML = 'Activation Date: ';
-            team_info_div_data[7].innerHTML = 'Package : ';
-            team_info_div_data[8].innerHTML = 'Total Right : ';
-            // team_info_div_data[9].innerHTML = 'Total Right Active : ';
-            team_info_div_data[10].innerHTML = 'Right BusinNameess : ';
-            team_info_div.classList.add('d-none');
-            Sponsor.innerHTML = "Sponsor : ";
-
-        }
-    }
     useEffect(() => {
         referral_API()
         let idinput = document.querySelector('.idinput')
         idinput.value = Idnumer;
 
     }, [Idnumer])
-    useEffect(() => {
-        referral_API()
-    }, [])
+    // useEffect(() => {
+    //     referral_API()
+    // }, [])
     function addValue(value) {
         setArrValue([...arrValue, value])
         // arrValue.push(value)
@@ -671,11 +391,11 @@ const Matching_Tree = () => {
 
     var a;
     function popoutvalue() {
-        
+
         if (arrValue.length == 1) {
             setloader(true)
             arrValue.pop()
-            arrValue.unshift('778899')
+            arrValue.unshift(user)
             bol = true;
             setloader(false)
 
@@ -690,31 +410,39 @@ const Matching_Tree = () => {
 
     }
 
+
+
+    // useEffect(() => {
+
+    //     handleChange()
+    
+    // }, [data])
+    
     console.log("userdata", userdata);
 
     return (
         <div className="row justify-content-center" style={{ height: "120vh" }}>
-            {loader == true ? ( <div className='LoaderSpinner'>
-               <Dna
-                visible={true}
-                height="180"
-                width="180"
-                ariaLabel="dna-loading"
-                wrapperStyle={{}}
-                wrapperClass="dna-wrapper"
+            {loader == true ? (<div className='LoaderSpinner'>
+                <Dna
+                    visible={true}
+                    height="180"
+                    width="180"
+                    ariaLabel="dna-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="dna-wrapper"
                 />
-        </div>): <></>}
+            </div>) : <></>}
             <div className="col-md-11 py-3">
                 <PagePath data={{ page_name: "Matching Tree", page_path: "Team Details / Matching Tree" }} />
                 <div className="col-12 row justify-content-center py-5" style={{ overflowY: "hidden" }}>
 
                     <div className="col-lg-6">
                         <div class="tree_icon" style={{ display: 'block' }}>
-                            <input type="text" className="p-2 my-2 mx-3 profile-border  idinput"  defaultValue={Idnumer} onChange={(e) => setgetValue(e.target.value)} />
-                            
-                            <button className="btn btn-success btn-tree" onClick={() => setIdnumer(getValue)}>Submit</button>
+                            <input type="text" className="p-2 my-2 mx-3 profile-border  idinput" defaultValue={Idnumer} onChange={(e) => (setgetValue(e.target.value))} />
+
+                            <button className="btn btn-success btn-tree" onClick={() => handleChange() }>Submit</button>
                             <button className=" btn btn-danger btn-tree" onClick={popoutvalue}>Go Back</button>
-                            <button className=" btn btn-danger btn-tree" onClick={()=>setIdnumer(user)} >Home</button>
+                            <button className=" btn btn-danger btn-tree" onClick={() => setIdnumer(user)} >Home</button>
 
 
                         </div>
@@ -756,12 +484,12 @@ const Matching_Tree = () => {
 
                                                 <img
 
-                                                    src={userdata[0].package >= 1 ? Active  : userdata[0].id == "" ? Default : user3red }
+                                                    src={userdata[0].package >= 1 ? Active : userdata[0].id == "" ? Default : user3red}
                                                     onClick={() => (setIdnumer(userdata[0].id), addValue(userdata[0].id))}
 
                                                     className="abc" style={{ margin: "0 80px", cursor: "pointer", border: "2px solid Green" }} width="50" height="50" onclick="Image_Click(364734)" />
                                             </button>
-                                           
+
 
                                             <div className="span" style={{ color: "#fff" }}>
                                                 {userdata[0]?.name}  <br />
@@ -865,7 +593,7 @@ const Matching_Tree = () => {
                                         <div className="row_2_child">
                                             <div className="dropdown">
                                                 <button className="dropbtn">
-                                                    <img     src={userdata[1].package >= 1 ? Active  : userdata[1].id == "" ? Default : user3red }
+                                                    <img src={userdata[1].package >= 1 ? Active : userdata[1].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[1].id), addValue(userdata[1].id))} className="abc" style={{ margin: "0 25px", cursor: "pointer" }} width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -967,8 +695,8 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                  
-                                                    <img     src={userdata[2].package >= 1 ? Active : userdata[2].id == "" ? Default : user3red }
+
+                                                    <img src={userdata[2].package >= 1 ? Active : userdata[2].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[2].id), addValue(userdata[2].id))} className="abc" style={{ margin: "0 25px", cursor: "pointer" }} width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1089,8 +817,8 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                   
-                                                    <img     src={userdata[3].package >= 1 ? Active :  userdata[3].id == "" ? Default : user3red }
+
+                                                    <img src={userdata[3].package >= 1 ? Active : userdata[3].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[3].id), addValue(userdata[3].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1195,7 +923,7 @@ const Matching_Tree = () => {
                                                 <button className="dropbtn">
 
 
-                                                    <img     src={userdata[4].package >= 1 ? Active  : userdata[4].id == "" ? Default : user3red }
+                                                    <img src={userdata[4].package >= 1 ? Active : userdata[4].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[4].id), addValue(userdata[4].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1298,10 +1026,10 @@ const Matching_Tree = () => {
                                         <div className="row_3_child">
                                             <div className="dropdown">
                                                 <button className="dropbtn">
-{
-    console.log("Res_API",userdata[1]?.position)
-}
-                                                <img     src={userdata[5].package >= 1 ? Active  : userdata[5].id == "" ? Default : user3red }
+                                                    {
+                                                        console.log("Res_API", userdata[1]?.position)
+                                                    }
+                                                    <img src={userdata[5].package >= 1 ? Active : userdata[5].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[5].id), addValue(userdata[5].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
 
@@ -1405,7 +1133,7 @@ const Matching_Tree = () => {
                                         <div className="row_3_child">
                                             <div className="dropdown">
                                                 <button className="dropbtn">
-                                                <img     src={userdata[6].package >= 1 ? Default : userdata[6].id == "" ? Default : user3red }
+                                                    <img src={userdata[6].package >= 1 ? Default : userdata[6].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[6].id), addValue(userdata[6].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1526,7 +1254,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img     src={userdata[7].package >= 1 ? Default : userdata[7].id == "" ? Default : user3red }
+                                                    <img src={userdata[7].package >= 1 ? Default : userdata[7].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[7].id), addValue(userdata[7].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1631,7 +1359,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[8].package >= 1 ? Default : userdata[8].id == "" ? Default : user3red }
+                                                    <img src={userdata[8].package >= 1 ? Default : userdata[8].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[8].id), addValue(userdata[8].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1737,7 +1465,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[9].package >= 1 ? Default : userdata[9].id == "" ? Default : user3red }
+                                                    <img src={userdata[9].package >= 1 ? Default : userdata[9].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[9].id), addValue(userdata[9].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1843,7 +1571,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[10].package >= 1 ? Default : userdata[10].id == "" ? Default : user3red }
+                                                    <img src={userdata[10].package >= 1 ? Default : userdata[10].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[10].id), addValue(userdata[10].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1949,7 +1677,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[11].package >= 1 ? Default : userdata[11].id == "" ? Default : user3red }
+                                                    <img src={userdata[11].package >= 1 ? Default : userdata[11].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[11].id), addValue(userdata[11].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -2055,7 +1783,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[12].package >= 1 ? Default : userdata[12].id == "" ? Default : user3red }
+                                                    <img src={userdata[12].package >= 1 ? Default : userdata[12].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[12].id), addValue(userdata[12].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -2161,7 +1889,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[13].package >= 1 ? Default : userdata[13].id == "" ? Default : user3red }
+                                                    <img src={userdata[13].package >= 1 ? Default : userdata[13].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[13].id), addValue(userdata[13].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -2267,7 +1995,7 @@ const Matching_Tree = () => {
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                <img src={userdata[14].package >= 1 ? Default : userdata[14].id == "" ? Default : user3red }
+                                                    <img src={userdata[14].package >= 1 ? Default : userdata[14].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[14].id), addValue(userdata[14].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
