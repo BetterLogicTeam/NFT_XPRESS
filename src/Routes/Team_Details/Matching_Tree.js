@@ -31,7 +31,7 @@ const Matching_Tree = () => {
 
 
     const [userdata, setuserdata] = useState(
-[
+        [
             {
                 name: '',
                 id: '',
@@ -276,89 +276,99 @@ const Matching_Tree = () => {
         ]
 
     )
-    
-    const handleChange = async () => {
-        setsearchvalue(getValue)
-        let array = []
-        let responce = await API?.post('/binary_tree', {
-            "uid": Idnumer,
-            "usersession_uid": "1"
-        })
-        responce = responce?.data?.data?.recordset;
-        console.log("userdata", getValue);
 
-        let array_length = responce.length;
-        for (let i = 0; i < array_length; i++) {
-            array = [...array, responce[i].uid]
-            console.log("aaray", i);
-            console.log("Arraya_data", array);
-           
-        }  
-        
-        
-        const found = array.find(element => element == getValue);
-        console.log("found", found);
+    //     const handleChange = async () => {
+    //         setsearchvalue(getValue)
+    //         let array = []
+    //         let responce = await API?.post('/binary_tree', {
+    //             "uid": Idnumer,
+    //             "usersession_uid": user
+    //         })
+    //         responce = responce?.data?.data?.recordset;
+    //         console.log("userdata", getValue);
 
-        if(found==undefined){
-toast.error("User ID Not Found")
-        }else{
+    //         let array_length = responce.length;
+    //         for (let i = 0; i < array_length; i++) {
+    //             array = [...array, responce[i].uid]
+    //             console.log("aaray", i);
+    //             console.log("Arraya_data", array);
 
-            setIdnumer(found)
-        }
-        
+    //         }  
 
-    };
+
+    //         const found = array.find(element => element == getValue);
+    //         console.log("found", found);
+
+    //         if(found==undefined){
+    // toast.error("User ID Not Found")
+    //         }else{
+
+    //             setIdnumer(found)
+    //         }
+
+
+    //     };
 
 
 
     const referral_API = async () => {
         try {
 
-            setloader(true)
 
             // console.log("searchvalue", searchvalue);
 
             let responce = await API?.post('/binary_tree', {
                 "uid": Idnumer,
-                "usersession_uid": "1"
+                "usersession_uid": user
             })
             responce = responce?.data?.data?.recordset;
-            console.log("Res_API", responce[0].uid);
-
-            let arr = []
-            responce.forEach((item, index) => {
-
-                arr.push({
-                    name: item.fname,
-                    id: item.uid,
-                    registration_date: item?.activationdate,
-                    status: item.activationdate ? 'Active' : 'InActive',
-                    total_left: item.left_count,
-                    total_left_active: item.totalleft,
-                    left_business: item.lbv,
-                    package_amount: item.packageamount,
-                    Activation_date: item.activationdate,
-                    package: item.package,
-                    total_right: item.right_count,
-                    total_right_active: item.totalright,
-                    right_business: item.rbv,
-                    Sponsor: item.sid,
-                    date: item?.packageName
-                });
+            console.log("Res_API", responce);
+            if (responce == undefined) {
+                toast.error("User ID Not Found")
+                setloader(false)
 
 
+            } else {
+            setloader(true)
+
+
+                let arr = []
+                responce.forEach((item, index) => {
+
+                    arr.push({
+                        name: item.fname,
+                        id: item.uid,
+                        registration_date: item?.activationdate,
+                        status: item.activationdate ? 'Active' : 'InActive',
+                        total_left: item.left_count,
+                        total_left_active: item.totalleft,
+                        left_business: item.lbv,
+                        package_amount: item.packageamount,
+                        Activation_date: item.activationdate,
+                        package: item.package,
+                        total_right: item.right_count,
+                        total_right_active: item.totalright,
+                        right_business: item.rbv,
+                        Sponsor: item.sid,
+                        date: item?.packageName
+                    });
+
+
+
+                }
+                )
+                console.log("responce", arr);
+
+                setloader(false)
+
+                setuserdata(arr)
+                if (bol) {
+                    setArrValue([...arrValue, arr[0].id])
+                    bol = false;
+                }
 
             }
-            )
-            console.log("responce", arr);
 
-            setloader(false)
-
-            setuserdata(arr)
-            if (bol) {
-                setArrValue([...arrValue, arr[0].id])
-                bol = false;
-            }
 
 
 
@@ -415,9 +425,9 @@ toast.error("User ID Not Found")
     // useEffect(() => {
 
     //     handleChange()
-    
+
     // }, [data])
-    
+
     console.log("userdata", userdata);
 
     return (
@@ -440,7 +450,7 @@ toast.error("User ID Not Found")
                         <div class="tree_icon" style={{ display: 'block' }}>
                             <input type="text" className="p-2 my-2 mx-3 profile-border  idinput" defaultValue={Idnumer} onChange={(e) => (setgetValue(e.target.value))} />
 
-                            <button className="btn btn-success btn-tree" onClick={() => handleChange() }>Submit</button>
+                            <button className="btn btn-success btn-tree" onClick={() => (setIdnumer(getValue),addValue(getValue))}>Submit</button>
                             <button className=" btn btn-danger btn-tree" onClick={popoutvalue}>Go Back</button>
                             <button className=" btn btn-danger btn-tree" onClick={() => setIdnumer(user)} >Home</button>
 
@@ -1026,9 +1036,7 @@ toast.error("User ID Not Found")
                                         <div className="row_3_child">
                                             <div className="dropdown">
                                                 <button className="dropbtn">
-                                                    {
-                                                        console.log("Res_API", userdata[1]?.position)
-                                                    }
+
                                                     <img src={userdata[5].package >= 1 ? Active : userdata[5].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[5].id), addValue(userdata[5].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1133,7 +1141,7 @@ toast.error("User ID Not Found")
                                         <div className="row_3_child">
                                             <div className="dropdown">
                                                 <button className="dropbtn">
-                                                    <img src={userdata[6].package >= 1 ? Default : userdata[6].id == "" ? Default : user3red}
+                                                    <img src={userdata[6].package >= 1 ? Active : userdata[6].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[6].id), addValue(userdata[6].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1254,7 +1262,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[7].package >= 1 ? Default : userdata[7].id == "" ? Default : user3red}
+                                                    <img src={userdata[7].package >= 1 ? Active : userdata[7].id == "" ? Default : user3red}
                                                         onClick={() => (setIdnumer(userdata[7].id), addValue(userdata[7].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
                                                 <div className="span" style={{ color: "#fff" }}>
@@ -1359,7 +1367,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[8].package >= 1 ? Default : userdata[8].id == "" ? Default : user3red}
+                                                    <img src={userdata[8].package >= 1 ? Active : userdata[8].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[8].id), addValue(userdata[8].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1465,7 +1473,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[9].package >= 1 ? Default : userdata[9].id == "" ? Default : user3red}
+                                                    <img src={userdata[9].package >= 1 ? Active : userdata[9].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[9].id), addValue(userdata[9].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1571,7 +1579,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[10].package >= 1 ? Default : userdata[10].id == "" ? Default : user3red}
+                                                    <img src={userdata[10].package >= 1 ? Active : userdata[10].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[10].id), addValue(userdata[10].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1677,7 +1685,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[11].package >= 1 ? Default : userdata[11].id == "" ? Default : user3red}
+                                                    <img src={userdata[11].package >= 1 ? Active : userdata[11].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[11].id), addValue(userdata[11].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1783,7 +1791,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[12].package >= 1 ? Default : userdata[12].id == "" ? Default : user3red}
+                                                    <img src={userdata[12].package >= 1 ? Active : userdata[12].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[12].id), addValue(userdata[12].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1889,7 +1897,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[13].package >= 1 ? Default : userdata[13].id == "" ? Default : user3red}
+                                                    <img src={userdata[13].package >= 1 ? Active : userdata[13].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[13].id), addValue(userdata[13].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
@@ -1995,7 +2003,7 @@ toast.error("User ID Not Found")
                                             <div className="dropdown">
                                                 <button className="dropbtn">
 
-                                                    <img src={userdata[14].package >= 1 ? Default : userdata[14].id == "" ? Default : user3red}
+                                                    <img src={userdata[14].package >= 1 ? Active : userdata[14].id == "" ? Default : user3red}
 
                                                         onClick={() => (setIdnumer(userdata[14].id), addValue(userdata[14].id))} className="abc" width="50" height="50" onclick="Image_Click()" />
                                                 </button>
