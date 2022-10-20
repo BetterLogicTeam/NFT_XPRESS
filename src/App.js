@@ -114,13 +114,6 @@ function App() {
                 <Route path='/dashboard/Withdrawal_Share_Bonus' element={<Withdrawal_Share_Bonus />} />
                 <Route path='/dashboard/LAG_Token' element={<Airdrop_Token />} />
                 <Route path='/dashboard/LAG_Token_History' element={<Airdrop_Token_History />} />
-
-
-
-
-
-
-
                 <Route path='/dashboard/Direct_Leg_Business' element={<Direct_Leg_Business />} />
                 <Route path='/dashboard/Level_Details' element={<Level_Details />} />
                 <Route path='/dashboard/Matching_Tree' element={<Matching_Tree />} />
@@ -129,17 +122,12 @@ function App() {
                 <Route path='/dashboard/Coin_Address' element={<Coin_Address />} />
                 <Route path='/dashboard/NFT_Address' element={<NFT_Address />} />
                 <Route path='/dashboard/Governance_Token_Address' element={<Governance_Token_Address />} />
-
                 <Route path='/dashboard/Self_Address' element={<Self_Address userAddress={userAddress} />} />
                 <Route path='/dashboard/Mint' element={<Mint  />} />
                 <Route path='/dashboard/Minting_History' element={<Minting_History  />} />
                 <Route path='/dashboard/Mint_nft' element={<Mint_nft  />} />
                 <Route path='/dashboard/Collection' element={<Collection  />} />
                 {/* <Footer/> */}
-
-         
-
-
 
          
           </Route>
