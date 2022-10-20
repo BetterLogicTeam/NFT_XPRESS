@@ -925,7 +925,10 @@ setGlobalPosition(res.GlobalPosition)
                       <div class="Prg_container mt-3">
                         <div class="barcontainer">
                           <div class="bar" style={{ height: "25%" }}>
-                            <p className='dash-h3' style={{ marginLeft: '1.9rem' }}>{yesterdaycto}</p>
+                            <div className='withdrawal_left'>
+
+                            <p className='dash-h3' >{yesterdaycto}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -936,7 +939,7 @@ setGlobalPosition(res.GlobalPosition)
                         <div class="barcontainer">
                           <div class="bar" style={{ height: "25%" }}>
 
-                            <div className='me-5' style={{ marginLeft: '1.9rem' }}>
+                            <div className='me-6 withdrawal_left' >
                               <p>{todaycto}</p>
 
 
@@ -1149,7 +1152,7 @@ setGlobalPosition(res.GlobalPosition)
                     <div className='dash-h3' id="myBar" style={{ width: ((MaxIncome / 400) * 100).toFixed(0) + "%", backgroundColor: "green" }}></div>
                   </div>
                 </div>
-                <div class="text_color dash-h3" style={{ fontSize: "medium" }}>
+                <div class="text_color dash-h3" >
                   {/* You have earned a total {EarnAmount} USD out of {tt} USD (Your earned {MaxIncome}% out of 400% of your investment ) */}
                   You have earned a total $ {EarnAmount}  out of $ {tt}  ({MaxIncome}% out of your total 400% of your investment)
 

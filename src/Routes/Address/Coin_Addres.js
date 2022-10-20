@@ -20,7 +20,7 @@ const Coin_Address = () => {
             <div className="col-md-11 py-3">
                 <PagePath data={{ page_name: "In Game Reward Token Address", page_path: "Address / In Game Reward Token Address" }} />
                 <h5 className=" mt-5  copydata" style={{ color: 'rgb(0 0 0 / 85%)' }}>In Game Reward Token Address :
-                    {(<a href={`https://bscscan.com/address/0x3a49e91e69e18d886f33155c4de23dd3819626e9`} className="  copydata" target="_blank">{"0x3a49e91e69e18d886f33155c4de23dd3819626e9" || "Connect Wallet"}</a>)}
+                    {(<a href={`https://bscscan.com/address/0x3a49e91e69e18d886f33155c4de23dd3819626e9`} className="  copydata" target="_blank">{"0x3a49e91e69e...dd3819626e9" || "Connect Wallet"}</a>)}
                     <div class="wdg-actions  ms-4 ">
                         <CopyToClipboard text="0x3a49e91e69e18d886f33155c4de23dd3819626e9"
                         onCopy={() => setcopyTest(true)}

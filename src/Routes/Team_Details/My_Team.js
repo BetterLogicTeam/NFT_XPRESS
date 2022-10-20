@@ -122,15 +122,17 @@ const My_Team = () => {
                     </div>
                     <div class="col-md-3">
                         <label> From Date</label>
-                        <input type="date" name="from_date" id="from_date" class="select-system" onChange={(e) => setfromdatefilter(e.target.value)} />
+                        <input type="date" data-date-format="DD MMMM YYYY"   class="select-system" onChange={(e) => setfromdatefilter(e.target.value)} />
                     </div><br /><br />
                     <div class="col-md-3">
                         <label> To Date</label>
-                        <input type="date" name="to_date" id="to_date" class="select-system" onChange={(e) => settodateFilter(e.target.value)} />
+                        {/* <input type="date"/> */}
+                        <input type="date" data-date-format="DD MMMM YYYY" class="select-system" onChange={(e) => settodateFilter(e.target.value)} />
                     </div><br /><br />
                     <div class="col-md-2 mt-2">
                         <input type="button" name="to_date" value="Search" class="btn btn-primary mt_5" onClick={referral_API} />
                     </div>
+                    
                 </div>
                 <br />
 

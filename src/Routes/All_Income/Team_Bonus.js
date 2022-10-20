@@ -42,7 +42,7 @@ const Team_Bonus = () => {
             { Header: 'S.Number', accessor: 'RowNumber' },
             { Header: 'User ID', accessor: 'uid' },
             { Header: 'Matching Business', accessor: 'paidpv' },
-            { Header: 'Net Income', accessor: 'binaryincome' },
+            { Header: '$ Net Income', accessor: 'binaryincome' },
             { Header: 'Date & Time', accessor: 'dd' },
         ]
     });

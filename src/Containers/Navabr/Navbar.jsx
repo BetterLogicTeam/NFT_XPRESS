@@ -190,8 +190,7 @@ const Navbar = () => {
                                                 <Link onClick={onClick_DNone} to="/dashboard/Change_Password"><BsArrowRightShort /> Change Password </Link>
                                             </div>
                                         </div>
-                                        {/* </li> */}
-                                        {/* </a> */}
+                                    
 
                                     </div>
 

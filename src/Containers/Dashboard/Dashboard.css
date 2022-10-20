@@ -108,9 +108,9 @@
         -webkit-transform-origin: right;
         transform-origin: right;
         transition: all .3s ease;
-        background: #5138ee;
+        background: #5138ee !important;
         font-weight: 700;
-        width: 35% !important;
+        
     }
 
     .wdg-input-box {
@@ -153,6 +153,9 @@
     small{
         font-size: 31px !important;
     }
+    .withdrawal_left{
+        margin-left:3.9rem !important ;
+        }
 
 }
 
@@ -189,4 +192,8 @@
 .aliIcon{
     color: #5138ee !important;
     font-size: 2rem !important;
+}
+
+.withdrawal_left{
+margin-left:2.5rem  ;
 }

@@ -307,7 +307,7 @@ tr.fgtybmd td {
     position: absolute;
     width: 350px !important;
     z-index: 1;
-    margin-left: -250px !important;
+    margin-left: -250px ;
 }
 
 .dropdown-content a {
@@ -364,7 +364,7 @@ tr.fgtybmd td {
     float: left;
 }
 
-@media screen and (min-width:320px) and (max-width:800px) {
+@media only screen and (max-width: 1000px) {
     .card {
         /*float: left;
             width: 1360px;*/
@@ -380,13 +380,7 @@ tr.fgtybmd td {
         margin-left: 240px;
         overflow: scroll;
     }
-    .dropdown-content {
-        display: none;
-        position: relative;
-        width: 350px !important;
-        z-index: 1;
-        margin-left: 500px !important;
-    }
+    
 }
 
 .float_rt {

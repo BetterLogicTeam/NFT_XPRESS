@@ -20,7 +20,7 @@ export default function Governance_Token_Address() {
         <div className="col-md-11 py-3">
           <PagePath data={{ page_name: "Governance Token Address", page_path: "Address / Governance Token Address" }} />
           <h5 className=" mt-5  copydata" style={{ color: 'rgb(0 0 0 / 85%)' }}>Governance Token Address :
-            {(<a href={`https://bscscan.com/address/0x052775cf897b3ec894f26b8d801c514123c305d1`} className="  copydata" target="_blank">{"0x052775cf897b3ec894f26b8d801c514123c305d1" || "Connect Wallet"}</a>)}
+            {(<a href={`https://bscscan.com/address/0x052775cf897b3ec894f26b8d801c514123c305d1`} className="  copydata" target="_blank">{"0x052775cf897b3e...4123c305d1" || "Connect Wallet"}</a>)}
 
             <div class="wdg-actions ms-4 ">
               <CopyToClipboard text={`0x052775cf897b3ec894f26b8d801c514123c305d1`}

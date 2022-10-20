@@ -346,10 +346,10 @@
         width: 85% !important;
     }
     .border_right{
-        font-size: 3rem !important;
+        font-size: 2rem !important;
     }
     .icon_page{
-        font-size: 3rem !important;
+        font-size: 2rem !important;
 
     }
     .bootom_div p{
@@ -357,6 +357,9 @@
     }
    .first_col h3{
     font-size: 40px !important;
+   }
+   .Video_height{
+    height: 45rem !important;
    }
 }
 
@@ -386,3 +389,6 @@
 .card_div_collection{
     width: 100% !important;
 }
+.Video_height{
+    height: 20rem ;
+   }

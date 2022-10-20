@@ -41,7 +41,7 @@ const Self_Address = () => {
 
 
                 <h5 className=" mt-5  copydata" style={{ color: 'rgb(0 0 0 / 85%)' }}>Self Address : 
-                { (<a href={`https://bscscan.com/tx/${address}`} className="  copydata" target="_blank">{address || "Connect Wallet" }</a>)} 
+                { (<a href={`https://bscscan.com/tx/${address}`} className="  copydata" target="_blank">{ address ? (address?.substring(0, 15) + "..." + address?.substring(address?.length - 15)) : "Connect Wallet" }</a>)} 
                 
                 <div class="wdg-actions  ms-4 ">
               <CopyToClipboard text={`${address}`}

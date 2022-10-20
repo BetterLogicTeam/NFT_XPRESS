@@ -1,5 +1,5 @@
 //   Mint with 100
-export const GLABA_NFT = "0x9C745c6Df1de64a022800f4A675c62e3799b3adb";
+export const GLABA_NFT = "0x45a1785E388C9450C7D172953EAaB02b883e89CB";
 export const GLABA_NFT_ABI = [{
     "inputs": [{
         "internalType": "string",
@@ -193,6 +193,26 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPricein_bnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "MinitngPricein_busd",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -228,6 +248,26 @@ export const GLABA_NFT_ABI = [{
         "type": "uint256"
     }],
     "name": "SetMinitngPricein_Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -363,6 +403,16 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "Valueinbnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "WhitelistMinitngPricein_BUSD",
     "outputs": [{
         "internalType": "uint256",
@@ -383,7 +433,7 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
+    "name": "WhitelistMintingPricein_bnb",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -465,6 +515,16 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "bnbmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "bnbtoToken",
     "outputs": [{
         "internalType": "uint256",
@@ -480,6 +540,16 @@ export const GLABA_NFT_ABI = [{
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "busdmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -590,6 +660,30 @@ export const GLABA_NFT_ABI = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "mint_with_BUSD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "mint_with_bnb",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [{
@@ -713,6 +807,12 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "paused_bnb_min",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "pausedminting",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -815,6 +915,18 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "setDisablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setDisablemintwith_busd",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "setDisablemintwithtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -901,11 +1013,33 @@ export const GLABA_NFT_ABI = [{
     "type": "function"
 }, {
     "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_Valueinbnb_price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
         "internalType": "string",
         "name": "_newbaseExtension",
         "type": "string"
     }],
     "name": "setbaseExtension",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -954,6 +1088,16 @@ export const GLABA_NFT_ABI = [{
         "type": "string"
     }],
     "name": "setnotRevealedUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+    }],
+    "name": "setpricetime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1116,6 +1260,12 @@ export const GLABA_NFT_ABI = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "inputs": [],
+    "name": "unpaused_bnb_mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "inputs": [{
         "internalType": "address",
         "name": "_owner",
@@ -1180,7 +1330,7 @@ export const GLABA_NFT_ABI = [{
 
 
 // Mint With 500--------------------------------------------------------------------
-export const GLABA_NFT_500 = "0x8EA554A0160667118AC2A223c3ff3D5c9bad73C5";
+export const GLABA_NFT_500 = "0x025E43A52186A6135903A6cBe07C2fE3AB10e479";
 export const GLABA_NFT_ABI_500 = [{
     "inputs": [{
         "internalType": "string",
@@ -1374,6 +1524,26 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPricein_bnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "MinitngPricein_busd",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -1409,6 +1579,26 @@ export const GLABA_NFT_ABI_500 = [{
         "type": "uint256"
     }],
     "name": "SetMinitngPricein_Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -1544,6 +1734,16 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "Valueinbnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "WhitelistMinitngPricein_BUSD",
     "outputs": [{
         "internalType": "uint256",
@@ -1564,7 +1764,7 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
+    "name": "WhitelistMintingPricein_bnb",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -1646,6 +1846,16 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "bnbmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "bnbtoToken",
     "outputs": [{
         "internalType": "uint256",
@@ -1661,6 +1871,16 @@ export const GLABA_NFT_ABI_500 = [{
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "busdmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -1771,6 +1991,30 @@ export const GLABA_NFT_ABI_500 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "mint_with_BUSD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "mint_with_bnb",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [{
@@ -1894,6 +2138,12 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "paused_bnb_min",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "pausedminting",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -1996,6 +2246,18 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "setDisablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setDisablemintwith_busd",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "setDisablemintwithtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -2082,11 +2344,33 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }, {
     "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_Valueinbnb_price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
         "internalType": "string",
         "name": "_newbaseExtension",
         "type": "string"
     }],
     "name": "setbaseExtension",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -2135,6 +2419,16 @@ export const GLABA_NFT_ABI_500 = [{
         "type": "string"
     }],
     "name": "setnotRevealedUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+    }],
+    "name": "setpricetime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -2297,6 +2591,12 @@ export const GLABA_NFT_ABI_500 = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "inputs": [],
+    "name": "unpaused_bnb_mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "inputs": [{
         "internalType": "address",
         "name": "_owner",
@@ -2361,7 +2661,7 @@ export const GLABA_NFT_ABI_500 = [{
 
 
 // Mint With 1000-------------------------------------------------------------------------
-export const GLABA_NFT_1000 = "0x2863270F6588C11ff78d8577FFbb9f8cEDB29bCA";
+export const GLABA_NFT_1000 = "0xEB9EFdfE99C4bE2a1cB2293D900Ff53cc4CE18B8";
 export const GLABA_NFT_ABI_1000 = [{
     "inputs": [{
         "internalType": "string",
@@ -2555,6 +2855,26 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPricein_bnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "MinitngPricein_busd",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -2590,6 +2910,26 @@ export const GLABA_NFT_ABI_1000 = [{
         "type": "uint256"
     }],
     "name": "SetMinitngPricein_Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -2725,6 +3065,16 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "Valueinbnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "WhitelistMinitngPricein_BUSD",
     "outputs": [{
         "internalType": "uint256",
@@ -2745,7 +3095,7 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
+    "name": "WhitelistMintingPricein_bnb",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -2827,6 +3177,16 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "bnbmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "bnbtoToken",
     "outputs": [{
         "internalType": "uint256",
@@ -2842,6 +3202,16 @@ export const GLABA_NFT_ABI_1000 = [{
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "busdmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -2952,6 +3322,30 @@ export const GLABA_NFT_ABI_1000 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "mint_with_BUSD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "mint_with_bnb",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [{
@@ -3075,6 +3469,12 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "paused_bnb_min",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "pausedminting",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -3177,6 +3577,18 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "setDisablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setDisablemintwith_busd",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "setDisablemintwithtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -3263,11 +3675,33 @@ export const GLABA_NFT_ABI_1000 = [{
     "type": "function"
 }, {
     "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_Valueinbnb_price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
         "internalType": "string",
         "name": "_newbaseExtension",
         "type": "string"
     }],
     "name": "setbaseExtension",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -3316,6 +3750,16 @@ export const GLABA_NFT_ABI_1000 = [{
         "type": "string"
     }],
     "name": "setnotRevealedUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+    }],
+    "name": "setpricetime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -3478,6 +3922,12 @@ export const GLABA_NFT_ABI_1000 = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "inputs": [],
+    "name": "unpaused_bnb_mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "inputs": [{
         "internalType": "address",
         "name": "_owner",
@@ -3544,7 +3994,7 @@ export const GLABA_NFT_ABI_1000 = [{
 
 
 // Mint With 2500-------------------------------------------------------------------------
-export const GLABA_NFT_2500 = "0xE1Fa6054f62D803E658ffAA2ad29680874fC9C3b";
+export const GLABA_NFT_2500 = "0xA8a5A6aD3c93f5023BeB1e9C9c2418A7EAFA1768";
 export const GLABA_NFT_ABI_2500 = [{
     "inputs": [{
         "internalType": "string",
@@ -3738,6 +4188,26 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPricein_bnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "MinitngPricein_busd",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -3773,6 +4243,26 @@ export const GLABA_NFT_ABI_2500 = [{
         "type": "uint256"
     }],
     "name": "SetMinitngPricein_Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -3908,6 +4398,16 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "Valueinbnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "WhitelistMinitngPricein_BUSD",
     "outputs": [{
         "internalType": "uint256",
@@ -3928,7 +4428,7 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
+    "name": "WhitelistMintingPricein_bnb",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -4010,6 +4510,16 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "bnbmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "bnbtoToken",
     "outputs": [{
         "internalType": "uint256",
@@ -4025,6 +4535,16 @@ export const GLABA_NFT_ABI_2500 = [{
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "busdmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -4135,6 +4655,30 @@ export const GLABA_NFT_ABI_2500 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "mint_with_BUSD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "mint_with_bnb",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [{
@@ -4258,6 +4802,12 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "paused_bnb_min",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "pausedminting",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -4360,6 +4910,18 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "setDisablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setDisablemintwith_busd",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "setDisablemintwithtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -4446,11 +5008,33 @@ export const GLABA_NFT_ABI_2500 = [{
     "type": "function"
 }, {
     "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_Valueinbnb_price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
         "internalType": "string",
         "name": "_newbaseExtension",
         "type": "string"
     }],
     "name": "setbaseExtension",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -4499,6 +5083,16 @@ export const GLABA_NFT_ABI_2500 = [{
         "type": "string"
     }],
     "name": "setnotRevealedUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+    }],
+    "name": "setpricetime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -4661,6 +5255,12 @@ export const GLABA_NFT_ABI_2500 = [{
     "stateMutability": "nonpayable",
     "type": "function"
 }, {
+    "inputs": [],
+    "name": "unpaused_bnb_mint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
     "inputs": [{
         "internalType": "address",
         "name": "_owner",
@@ -4723,7 +5323,7 @@ export const GLABA_NFT_ABI_2500 = [{
 // End 2500----------------------------------------------------------------------------------
 
 // Mint With 5000-------------------------------------------------------------------------
-export const GLABA_NFT_5000 = "0xa63699a54aE0AA0C0F7B75Eb76F0Ee0AdeC19dB2";
+export const GLABA_NFT_5000 = "0xE3CF0e3f732017a7E7E8f8D9Aee1016f8355Ae20";
 export const GLABA_NFT_ABI_5000 = [{
     "inputs": [{
         "internalType": "string",
@@ -4917,6 +5517,26 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "MinitngPricein_bnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "MinitngPricein_busd",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "MinitngPricein_token",
     "outputs": [{
         "internalType": "uint256",
@@ -4952,6 +5572,26 @@ export const GLABA_NFT_ABI_5000 = [{
         "type": "uint256"
     }],
     "name": "SetMinitngPricein_Token",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_value",
+        "type": "uint256"
+    }],
+    "name": "SetMinitngPricein_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -5087,6 +5727,16 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "Valueinbnb",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "WhitelistMinitngPricein_BUSD",
     "outputs": [{
         "internalType": "uint256",
@@ -5107,7 +5757,7 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
-    "name": "WhitelistMintingPricein_BNB",
+    "name": "WhitelistMintingPricein_bnb",
     "outputs": [{
         "internalType": "uint256",
         "name": "",
@@ -5189,6 +5839,16 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "bnbmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "bnbtoToken",
     "outputs": [{
         "internalType": "uint256",
@@ -5204,6 +5864,16 @@ export const GLABA_NFT_ABI_5000 = [{
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+    }],
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "busdmint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
     }],
     "stateMutability": "view",
     "type": "function"
@@ -5314,6 +5984,30 @@ export const GLABA_NFT_ABI_5000 = [{
         "type": "uint256"
     }],
     "stateMutability": "view",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "mint_with_BUSD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_count",
+        "type": "uint256"
+    }],
+    "name": "mint_with_bnb",
+    "outputs": [],
+    "stateMutability": "payable",
     "type": "function"
 }, {
     "inputs": [{
@@ -5437,6 +6131,12 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "paused_bnb_min",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "pausedminting",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -5539,6 +6239,18 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [],
+    "name": "setDisablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setDisablemintwith_busd",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
     "name": "setDisablemintwithtoken",
     "outputs": [],
     "stateMutability": "nonpayable",
@@ -5625,11 +6337,33 @@ export const GLABA_NFT_ABI_5000 = [{
     "type": "function"
 }, {
     "inputs": [{
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "set_Valueinbnb_price",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
         "internalType": "string",
         "name": "_newbaseExtension",
         "type": "string"
     }],
     "name": "setbaseExtension",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_bnb",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "setenablemintwith_busd",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -5678,6 +6412,16 @@ export const GLABA_NFT_ABI_5000 = [{
         "type": "string"
     }],
     "name": "setnotRevealedUri",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "_time",
+        "type": "uint256"
+    }],
+    "name": "setpricetime",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -5836,6 +6580,12 @@ export const GLABA_NFT_ABI_5000 = [{
 }, {
     "inputs": [],
     "name": "unpaused",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "inputs": [],
+    "name": "unpaused_bnb_mint",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -6987,4 +7737,368 @@ export const WIRE_Token_ABI = [{
     }],
     "name": "OwnershipTransferred",
     "type": "event"
+}]
+
+
+export const BUSD_Token = "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56";
+export const BUSD_Token_ABI = [{
+    "inputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+}, {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+    }, {
+        "indexed": true,
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+    }, {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "Approval",
+    "type": "event"
+}, {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+    }, {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+    }],
+    "name": "OwnershipTransferred",
+    "type": "event"
+}, {
+    "anonymous": false,
+    "inputs": [{
+        "indexed": true,
+        "internalType": "address",
+        "name": "from",
+        "type": "address"
+    }, {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+    }, {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+    }],
+    "name": "Transfer",
+    "type": "event"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "_decimals",
+    "outputs": [{
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "_name",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "_symbol",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [{
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+    }, {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+    }],
+    "name": "allowance",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "approve",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [{
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+    }],
+    "name": "balanceOf",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "burn",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [{
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "subtractedValue",
+        "type": "uint256"
+    }],
+    "name": "decreaseAllowance",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "getOwner",
+    "outputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "addedValue",
+        "type": "uint256"
+    }],
+    "name": "increaseAllowance",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "mint",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "name",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "owner",
+    "outputs": [{
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [{
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": true,
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [{
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+    }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "transfer",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+    }, {
+        "internalType": "address",
+        "name": "recipient",
+        "type": "address"
+    }, {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+    }],
+    "name": "transferFrom",
+    "outputs": [{
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+    }],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+}, {
+    "constant": false,
+    "inputs": [{
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+    }],
+    "name": "transferOwnership",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
 }]

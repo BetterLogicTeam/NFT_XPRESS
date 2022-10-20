@@ -117,11 +117,11 @@ const My_Referral = () => {
                     </div>
                     <div class="col-md-3">
                         <label style={{ color: 'rgb(0 0 0 / 85%)' }}> From Date</label>
-                        <input type="date" name="from_date" id="from_date" class="select-system" onChange={(e) => setfromdatefilter(e.target.value)} />
+                        <input type="date" placeholder="dd-mm-yyyy" name="from_date" id="from_date" class="select-system" onChange={(e) => setfromdatefilter(e.target.value)} />
                     </div><br /><br />
                     <div class="col-md-3">
                         <label style={{ color: 'rgb(0 0 0 / 85%)' }}> To Date</label>
-                        <input type="date" name="to_date" id="to_date" class="select-system" onChange={(e) => settodateFilter(e.target.value)} />
+                        <input type="date" placeholder="dd-mm-yyyy" name="to_date" id="to_date" class="select-system" onChange={(e) => settodateFilter(e.target.value)} />
                     </div><br /><br />
                     <div class="col-md-2 mt-2">
                         <input type="button" name="to_date" value="Search" class="btn btn-primary mt_5" onClick={referral_API} />

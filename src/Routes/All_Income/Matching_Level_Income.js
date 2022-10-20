@@ -90,11 +90,11 @@ const Matching_Level_Income = () => {
                     </div>
                     <div class="col-md-3">
                         <label> From Date</label>
-                        <input type="date" name="from_date" id="from_date" class="form-control" placeholder="Enter From Date" />
+                        <input type="date"    name="from_date" id="from_date" class="form-control" placeholder="dd-mm-yyyy" />
                     </div><br /><br />
                     <div class="col-md-3">
                         <label> To Date</label>
-                        <input type="date" name="to_date" id="to_date" class="form-control" />
+                        <input type="date" placeholder="dd-mm-yyyy" name="to_date" id="to_date" class="form-control" />
                     </div><br /><br />
                     <div class="col-md-3 mt-2">
                         <input type="submit" name="to_date" value="Search" class="btn btn-primary mt_5" />

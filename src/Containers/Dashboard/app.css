@@ -4662,7 +4662,7 @@ border: none;
     -webkit-transform-origin: right;
     transform-origin: right;
     transition: all .3s ease;
-    /* background: #5138ee; */
+    background: #5138ee;
     font-weight: 700;
     }
 .wdg-input-box{

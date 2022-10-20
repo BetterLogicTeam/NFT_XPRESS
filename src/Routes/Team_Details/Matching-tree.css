@@ -1,7 +1,29 @@
-.btn-tree{
+.btn-tree {
     margin: 0 10px;
 }
 
-.span{
+.span {
     color: black !important;
+}
+
+@media only screen and (max-width: 1000px) {
+    .page-wrapper {
+        margin-left: 0;
+        width: 100% !important;
+        overflow-x: scroll !important;
+        /* position: absolute !important; */
+
+
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        width: 350px !important;
+        z-index: 1;
+       
+        margin-left: -50px !important;
+    }
+
+
 }
