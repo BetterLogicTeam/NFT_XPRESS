@@ -1,5 +1,5 @@
 //   Mint with 100
-export const GLABA_NFT = "0x45a1785E388C9450C7D172953EAaB02b883e89CB";
+export const GLABA_NFT = "0x390659e022bb84f9945f52fB59A3C9d49ff52406";
 export const GLABA_NFT_ABI = [{
     "inputs": [{
         "internalType": "string",
@@ -670,6 +670,10 @@ export const GLABA_NFT_ABI = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
+        "type": "uint256"
     }],
     "name": "mint_with_BUSD",
     "outputs": [],
@@ -679,6 +683,10 @@ export const GLABA_NFT_ABI = [{
     "inputs": [{
         "internalType": "uint256",
         "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
         "type": "uint256"
     }],
     "name": "mint_with_bnb",
@@ -1330,7 +1338,7 @@ export const GLABA_NFT_ABI = [{
 
 
 // Mint With 500--------------------------------------------------------------------
-export const GLABA_NFT_500 = "0x025E43A52186A6135903A6cBe07C2fE3AB10e479";
+export const GLABA_NFT_500 = "0x90e6816EFF56a5ddcA22b5555F58918b78544ae2";
 export const GLABA_NFT_ABI_500 = [{
     "inputs": [{
         "internalType": "string",
@@ -2001,6 +2009,10 @@ export const GLABA_NFT_ABI_500 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
+        "type": "uint256"
     }],
     "name": "mint_with_BUSD",
     "outputs": [],
@@ -2010,6 +2022,10 @@ export const GLABA_NFT_ABI_500 = [{
     "inputs": [{
         "internalType": "uint256",
         "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
         "type": "uint256"
     }],
     "name": "mint_with_bnb",
@@ -2656,12 +2672,11 @@ export const GLABA_NFT_ABI_500 = [{
     "type": "function"
 }]
 
-
 // End 500-----------------------------------------------------------------------------
 
 
 // Mint With 1000-------------------------------------------------------------------------
-export const GLABA_NFT_1000 = "0xEB9EFdfE99C4bE2a1cB2293D900Ff53cc4CE18B8";
+export const GLABA_NFT_1000 = "0x967FD0ea18aab91A68cB2E0E545478C7EE0C56fa";
 export const GLABA_NFT_ABI_1000 = [{
     "inputs": [{
         "internalType": "string",
@@ -3332,6 +3347,10 @@ export const GLABA_NFT_ABI_1000 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
+        "type": "uint256"
     }],
     "name": "mint_with_BUSD",
     "outputs": [],
@@ -3341,6 +3360,10 @@ export const GLABA_NFT_ABI_1000 = [{
     "inputs": [{
         "internalType": "uint256",
         "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
         "type": "uint256"
     }],
     "name": "mint_with_bnb",
@@ -3994,7 +4017,7 @@ export const GLABA_NFT_ABI_1000 = [{
 
 
 // Mint With 2500-------------------------------------------------------------------------
-export const GLABA_NFT_2500 = "0xA8a5A6aD3c93f5023BeB1e9C9c2418A7EAFA1768";
+export const GLABA_NFT_2500 = "0xbf30C9B3ABD88fCE25510846A144CC371FfE3837";
 export const GLABA_NFT_ABI_2500 = [{
     "inputs": [{
         "internalType": "string",
@@ -4665,6 +4688,10 @@ export const GLABA_NFT_ABI_2500 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
+        "type": "uint256"
     }],
     "name": "mint_with_BUSD",
     "outputs": [],
@@ -4674,6 +4701,10 @@ export const GLABA_NFT_ABI_2500 = [{
     "inputs": [{
         "internalType": "uint256",
         "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
         "type": "uint256"
     }],
     "name": "mint_with_bnb",
@@ -5323,7 +5354,7 @@ export const GLABA_NFT_ABI_2500 = [{
 // End 2500----------------------------------------------------------------------------------
 
 // Mint With 5000-------------------------------------------------------------------------
-export const GLABA_NFT_5000 = "0xE3CF0e3f732017a7E7E8f8D9Aee1016f8355Ae20";
+export const GLABA_NFT_5000 = "0x275516cB59AFB431D2C20E6320D5B1f837ec92cf";
 export const GLABA_NFT_ABI_5000 = [{
     "inputs": [{
         "internalType": "string",
@@ -5994,6 +6025,10 @@ export const GLABA_NFT_ABI_5000 = [{
         "internalType": "uint256",
         "name": "amount",
         "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
+        "type": "uint256"
     }],
     "name": "mint_with_BUSD",
     "outputs": [],
@@ -6003,6 +6038,10 @@ export const GLABA_NFT_ABI_5000 = [{
     "inputs": [{
         "internalType": "uint256",
         "name": "_count",
+        "type": "uint256"
+    }, {
+        "internalType": "uint256",
+        "name": "amount1",
         "type": "uint256"
     }],
     "name": "mint_with_bnb",

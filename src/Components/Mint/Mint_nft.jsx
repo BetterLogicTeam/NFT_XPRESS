@@ -545,6 +545,13 @@ export default function Mint_nft() {
                             mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
                             let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + increment_each_data
                             console.log("Change_price", totalMintingPriceToken_1);
+                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
+                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
+                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
+                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + increment_each_data
+                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+                            console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
+
 
 
                             // if (minting_counter == 1) {
@@ -566,7 +573,7 @@ export default function Mint_nft() {
 
 
 
-                                        let hash = await nftContractOf.methods.mint_with_bnb(value).send({
+                                        let hash = await nftContractOf.methods.mint_with_bnb(value,totalMintingPriceToken_2).send({
                                             from: acc,
                                             value: totalMintingPriceToken_1.toString()
                                         })
@@ -705,6 +712,12 @@ export default function Mint_nft() {
                             mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
                             let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) 
                             console.log("Change_price", totalMintingPriceToken_1);
+                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
+                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
+                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
+                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) 
+                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+
 
 
                             // if (minting_counter == 1) {
@@ -759,7 +772,7 @@ export default function Mint_nft() {
                                         toast.success("Approve Confirmed BUSD Token")
 
 
-                                        let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceToken_1).send({
+                                        let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceToken_1,totalMintingPriceToken_2).send({
                                             from: acc,
                                         })
                                         setbtnFour("Mint With BUSD")
