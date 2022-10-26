@@ -31,18 +31,25 @@ export default function Mint_nft() {
     let [btnTwo, setButtonTwo] = useState("Mint With LAR");
     let [btnThress, setButtonThree] = useState("Mint With BNB");
     const [btnFour, setbtnFour] = useState("Mint With BUSD")
+    const [btnFive, setbtnFive] = useState("BNB And Wire")
+    const [btnSir, setbtnSir] = useState("BUSD And Wire")
+
 
 
     const [inputdatahere, setinputdatahere] = useState("100")
     const [Token_Value_1, setToken_Value_1] = useState(0)
     const [Token_Value_2, setToken_Value_2] = useState(0)
     const [Token_Value_3, setToken_Value_3] = useState(0)
-    const [image, setimage] = useState(horse3)
+    const [image, setimage] = useState(horse)
     const [minting_counter, setminting_counter] = useState(1)
     const [selected, setselected] = useState(false)
     const [contract_select, setcontract_select] = useState(100)
     const [Token_Value_BNB, setToken_Value_BNB] = useState(0)
     const [Token_Value_BUSD, setToken_Value_BUSD] = useState(0)
+    const [Token_Value_BNB_Without_wire, setToken_Value_BNB_Without_wire] = useState(0)
+    const [Token_Value_BUSD_Without_wire, setToken_Value_BUSD_Without_wire] = useState(0)
+
+
 
 
 
@@ -289,9 +296,6 @@ export default function Mint_nft() {
         }
     }
 
-
-
-
     const MintwithLaRace = async () => {
         // console.log("res",inputValue)
         // setShowModal(false)
@@ -480,6 +484,205 @@ export default function Mint_nft() {
         }
     }
 
+    const MintwithBNB_and_wire = async () => {
+        // console.log("res",inputValue)
+        // setShowModal(false)
+        let acc = await loadWeb3();
+        // console.log("ACC=",acc)
+        if (acc == "No Wallet") {
+            toast.error("No Wallet Connected")
+        }
+        else if (acc == "Wrong Network") {
+            toast.error("Wrong Newtwork please connect to Binance smart chain network")
+        } else {
+            try {
+
+                let res = await API.get(`/getDashboardValues?id=${user}`)
+                res = res.data.data[0]
+                let own_Address = res.address
+                console.log("res_Mint", own_Address == acc);
+                // res = res.data.data;
+                if (own_Address == "") {
+                    toast.error("Please Update Your Profile")
+                    navigate('/dashboard/Profile')
+
+                } else if (own_Address == acc) {
+                    try {
+
+                        setbtnFive("Please Wait While Processing")
+                        const web3 = window.web3;
+
+
+
+                        let nftTokenOf_La_Race = new web3.eth.Contract(LaRace_Governance_Token_ABI, LaRace_Governance_Token);
+                        let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
+                        let nftContractOf
+                        let increment_each_data
+                        if (contract_select == 100) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI, GLABA_NFT);
+                            increment_each_data = 0.00365946
+                        } else if (contract_select == 500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_500, GLABA_NFT_500);
+                            increment_each_data = 0.0109232
+                        } else if (contract_select == 1000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1000, GLABA_NFT_1000);
+                            increment_each_data = 0.0182093
+                        } else if (contract_select == 2500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
+                            increment_each_data = 0.001
+
+                        } else if (contract_select == 5000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
+                            increment_each_data = 0.0910139
+                        }
+
+                        let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                        if (value > totalnft) {
+                            toast.error(`Maximum Limit is ${totalnft} `)
+                        } else {
+                            let maxSupply = await nftContractOf.methods.maxsupply().call();
+                            let ttlSupply = await nftContractOf.methods.totalSupply().call();
+                            let paused = await nftContractOf.methods.paused().call();
+                            let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.Valueinbnb().call()
+                            mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
+                            mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
+                            let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + increment_each_data
+                            console.log("Change_price", totalMintingPriceToken_1);
+                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
+                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
+                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
+                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + increment_each_data
+                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+                            console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
+
+
+
+                            // if (minting_counter == 1) {
+
+                            //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1
+                            // } else if (minting_counter == 2) {
+                            //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1 * 2
+
+                            // }
+                            totalMintingPriceToken_1 = web3.utils.toWei(totalMintingPriceToken_1.toString())
+
+
+
+
+                            if (parseInt(ttlSupply) < parseInt(maxSupply)) {
+                                if (paused == false) {
+                                    if (value < parseInt(maxLimitprTransaction)) {
+
+                                        if (contract_select == 100) {
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 500) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_500, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 1000) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        }
+                                        else if (contract_select == 2500) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 5000) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        }
+
+
+                                        let hash = await nftContractOf.methods.mint_with_bnb(value, totalMintingPriceToken_2).send({
+                                            from: acc,
+                                            value: totalMintingPriceToken_1.toString()
+                                        })
+                                        setbtnFive("BNB And Wire")
+                                        hash = hash.transactionHash
+                                        // console.log("hash", hash);
+                                        // console.log("APIDATA", user,contract_select,acc,totalMintingPriceToken_1,value);
+
+                                        // mintingbnbPrice=web3.utils.fromWei((mintingbnbPrice).toString())
+                                        let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
+                                            "uid": user,
+                                            "sid": "0",
+                                            "transaction": hash,
+                                            "amount": contract_select,
+                                            "useraddress": acc,
+                                            "tokenamount": "0",
+                                            "type": "Without Referral ID",
+                                            "quantity": value,
+                                            "horseType": minting_counter == 1 ? "SINGLE" : "DUAL"
+
+                                        })
+                                        toast.success("Transaction Confirmed")
+
+                                        console.log("postapi", postapi);
+                                        // toast.success(postapi.data.data)
+                                        setinputdatahere(" ")
+
+                                    } else {
+                                        toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                                        setbtnFive("BNB And Wire")
+
+
+                                    }
+                                } else {
+                                    toast.error("Paused is True")
+                                    setbtnFive("BNB And Wire")
+
+
+                                }
+
+                            } else {
+                                toast.error("Max Supply is Greater than total Supply")
+                                setbtnFive("BNB And Wire")
+
+
+                            }
+
+                        }
+
+                    } catch (e) {
+                        console.log("Error while minting ", e)
+                        toast.error("Transaction failed")
+                        setbtnFive("BNB And Wire")
+
+
+                    }
+                } else {
+                    toast.error("Wrong Metamask Address")
+                    setinputdatahere(" ")
+
+
+                }
+
+
+            } catch (e) {
+                setinputdatahere(" ")
+
+
+            }
+
+        }
+    }
+
+
+
     const MintwithBNB = async () => {
         // console.log("res",inputValue)
         // setShowModal(false)
@@ -525,7 +728,7 @@ export default function Mint_nft() {
                             increment_each_data = 0.0182093
                         } else if (contract_select == 2500) {
                             nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
-                            increment_each_data = 0
+                            increment_each_data = 0.001
 
                         } else if (contract_select == 5000) {
                             nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
@@ -540,17 +743,18 @@ export default function Mint_nft() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.Valueinbnb().call()
+                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.Valueinbnb_single().call()
                             mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
                             mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
                             let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + increment_each_data
-                            console.log("Change_price", totalMintingPriceToken_1);
-                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
-                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
-                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
-                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + increment_each_data
-                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
-                            console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
+                            // totalMintingPriceToken_1=(totalMintingPriceToken_1*20/100)+totalMintingPriceToken_1
+                            // console.log("Change_price", totalMintingPriceToken_1);
+                            // let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
+                            // mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
+                            // mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
+                            // let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + increment_each_data
+                            // totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+                            // console.log("totalMintingPriceToken_2", totalMintingPriceToken_2);
 
 
 
@@ -572,8 +776,7 @@ export default function Mint_nft() {
 
 
 
-
-                                        let hash = await nftContractOf.methods.mint_with_bnb(value,totalMintingPriceToken_2).send({
+                                        let hash = await nftContractOf.methods.mint_with_bnb(value).send({
                                             from: acc,
                                             value: totalMintingPriceToken_1.toString()
                                         })
@@ -674,9 +877,6 @@ export default function Mint_nft() {
 
                         setbtnFour("Please Wait While Processing")
                         const web3 = window.web3;
-
-
-
                         let nftTokenOf_BUSD = new web3.eth.Contract(BUSD_Token_ABI, BUSD_Token);
                         let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
                         let nftContractOf
@@ -707,16 +907,14 @@ export default function Mint_nft() {
                             let ttlSupply = await nftContractOf.methods.totalSupply().call();
                             let paused = await nftContractOf.methods.paused().call();
                             let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
-                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.MinitngPricein_busd().call()
+                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.MinitngPricein_busd_single().call()
                             mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
                             mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
-                            let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) 
+                            let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1)
+                            // totalMintingPriceToken_1=(totalMintingPriceToken_1*20/100)+totalMintingPriceToken_1
+
                             console.log("Change_price", totalMintingPriceToken_1);
-                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
-                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
-                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
-                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) 
-                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+
 
 
 
@@ -772,7 +970,7 @@ export default function Mint_nft() {
                                         toast.success("Approve Confirmed BUSD Token")
 
 
-                                        let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceToken_1,totalMintingPriceToken_2).send({
+                                        let hash = await nftContractOf.methods.mint_with_BUSD_100(value, totalMintingPriceToken_1).send({
                                             from: acc,
                                         })
                                         setbtnFour("Mint With BUSD")
@@ -822,6 +1020,234 @@ export default function Mint_nft() {
                         console.log("Error while minting ", e)
                         toast.error("Transaction failed")
                         setbtnFour("Mint With BUSD")
+
+                    }
+                } else {
+                    toast.error("Wrong Metamask Address")
+                    setinputdatahere(" ")
+
+
+                }
+
+
+            } catch (e) {
+                setinputdatahere(" ")
+
+
+            }
+
+        }
+    }
+
+
+    const MintwithBUSD_And_Wire = async () => {
+        // console.log("res",inputValue)
+        // setShowModal(false)
+        let acc = await loadWeb3();
+        // console.log("ACC=",acc)
+        if (acc == "No Wallet") {
+            toast.error("No Wallet Connected")
+        }
+        else if (acc == "Wrong Network") {
+            toast.error("Wrong Newtwork please connect to Binance smart chain network")
+        } else {
+            try {
+
+                let res = await API.get(`/getDashboardValues?id=${user}`)
+                res = res.data.data[0]
+                let own_Address = res.address
+                console.log("res_Mint", own_Address == acc);
+                // res = res.data.data;
+                if (own_Address == "") {
+                    toast.error("Please Update Your Profile")
+                    navigate('/dashboard/Profile')
+
+                } else if (own_Address == acc) {
+                    try {
+
+                        setbtnSir("Please Wait While Processing")
+                        const web3 = window.web3;
+                        let nftTokenOf_BUSD = new web3.eth.Contract(BUSD_Token_ABI, BUSD_Token);
+                        let nftTokenOf_Wire = new web3.eth.Contract(WIRE_Token_ABI, WIRE_Token);
+                        let nftContractOf
+                        let increment_each_data
+                        if (contract_select == 100) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI, GLABA_NFT);
+                            increment_each_data = 0.00365946
+                        } else if (contract_select == 500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_500, GLABA_NFT_500);
+                            increment_each_data = 0.0109232
+                        } else if (contract_select == 1000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_1000, GLABA_NFT_1000);
+                            increment_each_data = 0.0182093
+                        } else if (contract_select == 2500) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_2500, GLABA_NFT_2500);
+                            increment_each_data = 0
+
+                        } else if (contract_select == 5000) {
+                            nftContractOf = new web3.eth.Contract(GLABA_NFT_ABI_5000, GLABA_NFT_5000);
+                            increment_each_data = 0.0910139
+                        }
+
+                        let totalnft = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                        if (value > totalnft) {
+                            toast.error(`Maximum Limit is ${totalnft} `)
+                        } else {
+                            let maxSupply = await nftContractOf.methods.maxsupply().call();
+                            let ttlSupply = await nftContractOf.methods.totalSupply().call();
+                            let paused = await nftContractOf.methods.paused().call();
+                            let maxLimitprTransaction = await nftContractOf.methods.MaxLimitPerTransaction().call();
+                            let mintingbnbPrice_Toke_1 = await nftContractOf.methods.MinitngPricein_busd().call()
+                            mintingbnbPrice_Toke_1 = web3.utils.fromWei(mintingbnbPrice_Toke_1);
+                            mintingbnbPrice_Toke_1 = parseFloat(mintingbnbPrice_Toke_1)
+                            let totalMintingPriceToken_1 = Number(value * mintingbnbPrice_Toke_1) + Number(0.001)
+                            console.log("Change_price", totalMintingPriceToken_1);
+                            let mintingbnbPrice_Toke_2 = await nftContractOf.methods.ValueinToken1().call()
+                            mintingbnbPrice_Toke_2 = web3.utils.fromWei(mintingbnbPrice_Toke_2);
+                            mintingbnbPrice_Toke_2 = parseFloat(mintingbnbPrice_Toke_2)
+                            let totalMintingPriceToken_2 = Number(value * mintingbnbPrice_Toke_2) + Number(increment_each_data)+ Number(0.001)
+                            totalMintingPriceToken_2 = web3.utils.toWei(totalMintingPriceToken_2.toString())
+
+
+
+                            // if (minting_counter == 1) {
+
+                            //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1
+                            // } else if (minting_counter == 2) {
+                            //     totalMintingPriceToken_1 = value * mintingbnbPrice_Toke_1 * 2
+
+                            // }
+                            totalMintingPriceToken_1 = web3.utils.toWei(totalMintingPriceToken_1.toString())
+
+
+
+
+                            if (parseInt(ttlSupply) < parseInt(maxSupply)) {
+                                if (paused == false) {
+                                    if (value < parseInt(maxLimitprTransaction)) {
+
+                                        if (contract_select == 100) {
+                                            await nftTokenOf_BUSD.methods.approve(GLABA_NFT, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 500) {
+
+                                            await nftTokenOf_BUSD.methods.approve(GLABA_NFT_500, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 1000) {
+
+                                            await nftTokenOf_BUSD.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        }
+                                        else if (contract_select == 2500) {
+
+                                            await nftTokenOf_BUSD.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 5000) {
+
+                                            await nftTokenOf_BUSD.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_1).send({
+                                                from: acc
+                                            })
+
+                                        }
+
+                                        toast.success("Approve Confirmed BUSD Token")
+
+
+
+                                        if (contract_select == 100) {
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 500) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_500, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 1000) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_1000, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        }
+                                        else if (contract_select == 2500) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_2500, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        } else if (contract_select == 5000) {
+
+                                            await nftTokenOf_Wire.methods.approve(GLABA_NFT_5000, totalMintingPriceToken_2).send({
+                                                from: acc
+                                            })
+
+                                        }
+
+
+                                        toast.success("Approve Confirmed Wire Token")
+
+
+                                        let hash = await nftContractOf.methods.mint_with_BUSD(value, totalMintingPriceToken_1, totalMintingPriceToken_2).send({
+                                            from: acc,
+                                        })
+                                        setbtnSir("BUSD And Wire")
+                                        hash = hash.transactionHash
+                                        // console.log("hash", hash);
+                                        // console.log("APIDATA", user,contract_select,acc,totalMintingPriceToken_1,value);
+
+                                        // mintingbnbPrice=web3.utils.fromWei((mintingbnbPrice).toString())
+                                        let postapi = await axios.post('https://taraus-nft-api.herokuapp.com/activation', {
+                                            "uid": user,
+                                            "sid": "0",
+                                            "transaction": hash,
+                                            "amount": contract_select,
+                                            "useraddress": acc,
+                                            "tokenamount": "0",
+                                            "type": "Without Referral ID",
+                                            "quantity": value,
+                                            "horseType": minting_counter == 1 ? "SINGLE" : "DUAL"
+
+                                        })
+                                        toast.success("Transaction Confirmed")
+
+                                        console.log("postapi", postapi);
+                                        // toast.success(postapi.data.data)
+                                        setinputdatahere(" ")
+
+                                    } else {
+                                        toast.error("No of Minting is Greater than maximum limit Per Transaction")
+                                        setbtnSir("BUSD And Wire")
+
+                                    }
+                                } else {
+                                    toast.error("Paused is True")
+                                    setbtnSir("BUSD And Wire")
+
+                                }
+
+                            } else {
+                                toast.error("Max Supply is Greater than total Supply")
+                                setbtnSir("BUSD And Wire")
+
+                            }
+
+                        }
+
+                    } catch (e) {
+                        console.log("Error while minting ", e)
+                        toast.error("Transaction failed")
+                        setbtnSir("BUSD And Wire")
 
                     }
                 } else {
@@ -945,51 +1371,63 @@ export default function Mint_nft() {
 
 
                 let mintingPriceBNB = await nftContractOf.methods.Valueinbnb().call()
+                let add_Value_in_BNB = await nftContractOf.methods.Valueinbnb_single().call()
 
-                // mintingPriceBNB=Number(mintingPriceBNB)+0.07
+                let add_Value_in = web3.utils.fromWei((add_Value_in_BNB).toString());
                 mintingPriceBNB = web3.utils.fromWei(mintingPriceBNB);
                 mintingPriceBNB = Number(mintingPriceBNB) + Number(increment_each_data)
-
                 mintingPriceBNB = parseFloat(mintingPriceBNB).toFixed(4)
+
+
+                let Mint_Value_WithOut_Wire = Number(add_Value_in) + Number(increment_each_data)
+                Mint_Value_WithOut_Wire = parseFloat(Mint_Value_WithOut_Wire).toFixed(4)
+
+
+
 
                 if (minting_counter == 1) {
                     mintingPriceBNB = mintingPriceBNB * value
+                    Mint_Value_WithOut_Wire = Mint_Value_WithOut_Wire * value
+                    //    console.log("Mint_Value_WithOut_Wire", Mint_Value_WithOut_Wire);
 
+                    setToken_Value_BNB_Without_wire(Mint_Value_WithOut_Wire)
                     setToken_Value_BNB(mintingPriceBNB)
                 } else if (minting_counter == 2) {
-                    // mintingPriceBNB = mintingPriceBNB * value
-                    // console.log("mintingPriceBNB", mintingPriceBNB*2);
-
                     setToken_Value_BNB(mintingPriceBNB * 2)
+                    setToken_Value_BNB_Without_wire(Mint_Value_WithOut_Wire * 2)
 
                 } else {
+                    Mint_Value_WithOut_Wire = Mint_Value_WithOut_Wire * value
+                    setToken_Value_BNB_Without_wire(Mint_Value_WithOut_Wire)
                     mintingPriceBNB = mintingPriceBNB * value
-                    // mintingPriceBNB=Number(mintingPriceBNB)+
-
                     setToken_Value_BNB(mintingPriceBNB)
 
                 }
 
 
-                
+
                 let mintingPriceBUSD = await nftContractOf.methods.MinitngPricein_busd().call()
 
-                // mintingPriceBNB=Number(mintingPriceBNB)+0.07
-                mintingPriceBUSD = web3.utils.fromWei(mintingPriceBUSD);
-                console.log("Value_1", mintingPriceBUSD);
 
-                // mintingPriceBUSD = Number(mintingPriceBUSD) + Number(increment_each_data)
+                mintingPriceBUSD = web3.utils.fromWei(mintingPriceBUSD);
+
+                let Value_IN_BUSD = await nftContractOf.methods.MinitngPricein_busd_single().call()
+                Value_IN_BUSD = web3.utils.fromWei(Value_IN_BUSD);
+
+                Value_IN_BUSD = parseFloat(Value_IN_BUSD).toFixed(4)
 
                 mintingPriceBUSD = parseFloat(mintingPriceBUSD).toFixed(4)
 
                 if (minting_counter == 1) {
                     mintingPriceBUSD = mintingPriceBUSD * value
+                    Value_IN_BUSD = Value_IN_BUSD * value
 
+                    setToken_Value_BUSD_Without_wire(Value_IN_BUSD)
                     setToken_Value_BUSD(mintingPriceBUSD)
                 } else if (minting_counter == 2) {
                     // mintingPriceBUSD = mintingPriceBUSD * value
                     // console.log("mintingPriceBUSD", mintingPriceBUSD*2);
-
+                    setToken_Value_BUSD_Without_wire(Value_IN_BUSD * 2)
                     setToken_Value_BUSD(mintingPriceBUSD * 2)
 
                 } else {
@@ -997,6 +1435,12 @@ export default function Mint_nft() {
                     // mintingPriceBUSD=Number(mintingPriceBUSD)+
 
                     setToken_Value_BUSD(mintingPriceBUSD)
+
+
+                    mintingPriceBUSD = mintingPriceBUSD * value
+                    Value_IN_BUSD = Value_IN_BUSD * value
+
+                    setToken_Value_BUSD_Without_wire(Value_IN_BUSD)
 
                 }
 
@@ -1159,13 +1603,23 @@ export default function Mint_nft() {
 
                                             </div>
                                             <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                <button onClick={() => MintwithBNB_and_wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFive}</span></button>
+                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                            </div>
+                                            <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                <button onClick={() => MintwithBUSD_And_Wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnSir}</span></button>
+                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                            </div>
+                                            <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                 <button onClick={() => MintwithBNB()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnThress}</span></button>
-                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) </p>
+                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB_Without_wire}</span>) </p>
 
                                             </div>
                                             <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                 <button onClick={() => MintwithBUSD()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFour}</span></button>
-                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) </p>
+                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD_Without_wire}</span>) </p>
 
                                             </div>
 
@@ -1219,13 +1673,23 @@ export default function Mint_nft() {
 
                                                 </div>
                                                 <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                    <button onClick={() => MintwithBNB_and_wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFive}</span></button>
+                                                    <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                </div>
+                                                <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                    <button onClick={() => MintwithBUSD_And_Wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnSir}</span></button>
+                                                    <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                </div>
+                                                <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                     <button onClick={() => MintwithBNB()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnThress}</span></button>
-                                                    <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) </p>
+                                                    <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB_Without_wire}</span>) </p>
 
                                                 </div>
                                                 <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                     <button onClick={() => MintwithBUSD()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFour}</span></button>
-                                                    <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) </p>
+                                                    <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD_Without_wire}</span>) </p>
 
                                                 </div>
 
@@ -1279,13 +1743,23 @@ export default function Mint_nft() {
 
                                                     </div>
                                                     <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                        <button onClick={() => MintwithBNB_and_wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFive}</span></button>
+                                                        <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                    </div>
+                                                    <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                        <button onClick={() => MintwithBUSD_And_Wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnSir}</span></button>
+                                                        <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                    </div>
+                                                    <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                         <button onClick={() => MintwithBNB()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnThress}</span></button>
-                                                        <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) </p>
+                                                        <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB_Without_wire}</span>) </p>
 
                                                     </div>
                                                     <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                         <button onClick={() => MintwithBUSD()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFour}</span></button>
-                                                        <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) </p>
+                                                        <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD_Without_wire}</span>) </p>
 
                                                     </div>
 
@@ -1338,13 +1812,23 @@ export default function Mint_nft() {
 
                                                         </div>
                                                         <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                            <button onClick={() => MintwithBNB_and_wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFive}</span></button>
+                                                            <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                        </div>
+                                                        <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                            <button onClick={() => MintwithBUSD_And_Wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnSir}</span></button>
+                                                            <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                        </div>
+                                                        <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                             <button onClick={() => MintwithBNB()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnThress}</span></button>
-                                                            <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) </p>
+                                                            <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB_Without_wire}</span>) </p>
 
                                                         </div>
                                                         <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                             <button onClick={() => MintwithBUSD()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFour}</span></button>
-                                                            <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) </p>
+                                                            <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD_Without_wire}</span>) </p>
 
                                                         </div>
 
@@ -1419,13 +1903,23 @@ export default function Mint_nft() {
 
                                                             </div>
                                                             <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                                <button onClick={() => MintwithBNB_and_wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFive}</span></button>
+                                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                            </div>
+                                                            <div className="d-flex  mt-lg-5 mt-3 btnandP ">
+                                                                <button onClick={() => MintwithBUSD_And_Wire()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnSir}</span></button>
+                                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) (<span>WIRE :</span>    <span>{Token_Value_2}</span> ) </p>
+
+                                                            </div>
+                                                            <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                                 <button onClick={() => MintwithBNB()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnThress}</span></button>
-                                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB}</span>) </p>
+                                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BNB :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BNB_Without_wire}</span>) </p>
 
                                                             </div>
                                                             <div className="d-flex  mt-lg-5 mt-3 btnandP ">
                                                                 <button onClick={() => MintwithBUSD()} className="btn mintbtn" ><span id="bnbbtnhere" className="cstbtn" >{btnFour}</span></button>
-                                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD}</span>) </p>
+                                                                <p className="stakepageP  ms-4 mt-2   fw-3">(<span classNameName='stakepageP'>BUSD :</span> <span id="Metamaxmint" classNameName='stakepageP'>{Token_Value_BUSD_Without_wire}</span>) </p>
 
                                                             </div>
 
